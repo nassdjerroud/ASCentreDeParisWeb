@@ -1,0 +1,63 @@
+@model Models.ObjDocument
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    // Variable allant être incrémentée et utilisée pour afficher correctement le nombre de lignes
+    int NbDocuments=0;
+}
+
+<h1>Documents @Model.LibelleCategorieDocument</h1>
+
+<div class="container">
+    <div id="content" >	
+		@Html.Raw(@"<div class=""row"">")
+		@foreach (Models.Document doc in @Model.ListeDocuments)
+		           {
+		          if(@NbDocuments>0 && @NbDocuments%@Model.NombreDocumentsParLigne==0) 				        {
+		                 @Html.Raw("</div>")
+					     @Html.Raw(@"<div class=""row"">")
+					     }
+		                
+				        <div align="center" class="col-lg-3 divGallery project-imgs">
+						     @if(@doc.isImage)
+				                 	{
+					              	<img id="doc_image" src="@Url.Content(@doc.CheminDocument)" title="@doc.Titre" alt="@doc.Titre" style="height:220px" class="img-responsive img-rounded fancybox img-thumbnail imgBox">
+					                }
+						     @if(@doc.isVideo)
+							{
+							<video title="Cliquez dans le cadre pour lancer la vidéo" class="video-document" controls > 
+							   <source src="@Url.Action("ReadVideo","Document",new {idDocument=@doc.Id})" > 
+							</video>
+							}
+						      @if(!@doc.isVideo && !@doc.isImage)
+						          {
+					              	<div align="center">
+								    @using (Html.BeginForm("TelechargerDocument", "Document", FormMethod.Post))
+							            {
+							             <input formaction="/Document/TelechargerDocument?idDocument=@doc.Id"   type="image"  style="cursor:pointer;" src="@Url.Content(@doc.CheminImageFormatUpload)" alt="Télécharger le fichier" title="Télécharger le fichier"  class="ImageTelechargement imgBox" />
+							            }
+							</div>
+					              }
+						    <h4>@doc.Titre</h4>
+			                	   @if(!@doc.isImage)
+				                 	{
+			                      	 	<h5 align="center" style="font-size:14px">@doc.NomFichierUpload</h5>
+					          	}
+						     <p align="left" style="font-size:15px">@Html.Raw(@doc.Texte_HTML)</p>
+					       </div>
+
+		               NbDocuments++;
+		           }
+		   @Html.Raw("</div>")
+    </div>
+    <div id="page_navigation"> </div>
+ </div>
+
+ <script src="@Url.Content("~/Scripts/Documents.js")"></script>
+  <script> 
+    $(document).ready(function() {
+    	initPage();
+    });
+  </script>
+
+  	@Html.Partial("~/Views/Shared/_PartialBackToTop.cshtml")

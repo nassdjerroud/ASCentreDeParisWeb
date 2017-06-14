@@ -1,0 +1,46 @@
+﻿@using MvcSiteMapProvider.Web.Html;
+
+
+
+
+<div id="banner"  class="noMarginPaddingVertical container-fluid noMarginPaddingHorizontal" role="banner">
+    <div class="row styleTitre col-xs-12 noMarginPaddingHorizontal">
+            <div style="float:left;" id="divLogo" align="left" class="noMarginVertical col-xs-2 noMarginPaddingHorizontal">
+                <img id="bdf-logo" src="@Url.Content(Commons.Const.CheminLogoApplication)" style="max-height:150px;display:none" alt="" class="img-responsive showBigScreen" />
+            </div>
+            <div class="col-xs-8 noMarginPaddingHorizontal"  >
+                <div class="row noMarginVertical titreBanner">
+                    <h1 id="titreSite" style="padding-top:12px;margin-bottom:15px;font-size:38px;margin-left:0px;padding-left:0px;">
+                        <a href="@Url.Content("~/")" title="ASCentreDeParis">A.S. CENTRE DE PARIS</a>
+                    </h1>
+                </div>
+                <div class="row noMarginVertical showBigScreen" style="text-align:left;display:none" id="divSousTitre" >
+                    <h2 style="color:white;margin-top:0px;padding-bottom:6px;margin-bottom:0px;font-size:23px;text-align:left;margin-left:0px;padding-left:0px;">Club filleul du Paris Saint Germain créé en 1933</h2>
+                </div>
+			   <div class="row noMarginVertical" align="center" style="text-align:center;display:none;" id="divLogoMobile" >
+                    <img id="bdf-logo_2" src="@Url.Content(Commons.Const.CheminLogoApplication)" style="width:45%;display: block;margin-left: auto;margin-right: auto" alt="" class="img-responsive" />
+                </div>
+            </div>
+            <div class="col-xs-2 divLogin showBigScreen"  style="display:none" align="left" id="divLogin">
+		            @if (System.Web.HttpContext.Current.Session[Commons.Const.sessionName_UserConnecte] == null || ((Models.Utilisateur)(System.Web.HttpContext.Current.Session[Commons.Const.sessionName_UserConnecte])).Login == null)
+		            {
+		                <span id="span_login"  title="Se connecter"><img id="login" onclick="loginOnClick();" src="@Url.Content(Commons.Const.ImageLogin)" alt="" class="ImageLogin img-responsive" /></span>
+		            }
+		            else
+		            {
+				        string strProfils=((@Models.Utilisateur)(@System.Web.HttpContext.Current.Session[@Commons.Const.sessionName_UserConnecte])).strProfils;
+
+		                <span id="span_login_ok" align="center" title="@strProfils">
+		                    <img id="login_ok" src="@Url.Content(Commons.Const.ImageLogin_ok)" alt="" class="ImageLogin_ok img-responsive"  />
+		                </span>
+		                <span style="color:white">@(((@Models.Utilisateur)(@System.Web.HttpContext.Current.Session[@Commons.Const.sessionName_UserConnecte])).Login)</span>
+		                 <div style="margin-top:7px;">
+		                    <span id="span_deconnection" align="left" title="Se déconnecter">
+		                        <a onclick="logOff()" style="font-size:17px;color:white;cursor:pointer;">Se déconnecter</a>
+		                    </span>
+		                </div>
+		            }
+          </div>
+    </div>
+</div>
+

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd" >
+
+  	<mvcSiteMapNode title="Acceuil" controller="Home" action="Index">
+  	<mvcSiteMapNode title="Histoire" controller="Club" action="AfficherHistoire"/>
+  	<mvcSiteMapNode title="Partenariat avec le PSG" controller="Club" action="AfficherPartenariatPSG"/>
+  	<mvcSiteMapNode title="Equipes" clickable="false">
+  	    <mvcSiteMapNode title="Sénior" controller="Equipe" action="AfficherEquipe" idEquipe="1"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Documents" clickable="false">
+       <mvcSiteMapNode title="Documents" controller="Document" action="AfficherDocuments"/>
+    </mvcSiteMapNode>
+  	<mvcSiteMapNode title="Contacts" controller="Contact" action="AfficherContacts"/>
+  	<mvcSiteMapNode title="Partenaires" controller="Club" action="AfficherPartenaires"/>
+  	<mvcSiteMapNode title="Administration" roles="Administrateur" clickable="false">
+  	    <mvcSiteMapNode title="Gestion des actualités"  roles="Administrateur" controller="Administration" action="GererActualites"/>
+  	    <mvcSiteMapNode title="Gestion des commentaires"  roles="Administrateur" controller="Administration" action="GererCommentaires"/>
+  	    <mvcSiteMapNode title="Gestion des documents"  roles="Administrateur" controller="Administration" action="GererDocuments"/>
+  	    <mvcSiteMapNode title="Gestion des equipes"  roles="Administrateur" controller="Administration" action="GererEquipes"/>
+	    <mvcSiteMapNode title="Statistiques du site"  roles="Administrateur" controller="Administration" action="AfficherStats"/>
+	    <mvcSiteMapNode title="Logs"  roles="Administrateur" controller="Administration" action="AfficherLogs"/>
+    </mvcSiteMapNode>
+  </mvcSiteMapNode>
+
+</mvcSiteMap>

@@ -1,0 +1,21 @@
+﻿@model Models.Actualite
+<div class="col-xs-12" align="left">
+    <h5 style="margin-top:20px;margin-bottom:10px">Ajouter un nouveau commentaire</h5>
+</div>
+
+<div class="col-xs-12 row">
+	<div class="col-xs-3 libelleFormulaire blocCommentaire noMarginPaddingHorizontal" align="right">Nom</div>
+	<div class="col-xs-9 blocCommentaire">
+        @Html.Hidden("HiddenCouleurCommentaire",Model.couleurCommentaire, new { id= "HiddenCouleurCommentaire_" + @Model.Id })
+		@Html.TextBox("tbxUtilisateur_"+@Model.Id,null,new { @style = "width:100%;font-size:15px;" , @class="TbxUtilisateurCommentaire" }) 
+	</div>
+</div>
+<div class="col-xs-12 row">
+	<div class="col-xs-3 libelleFormulaire blocCommentaire noMarginPaddingHorizontal" align="right">Texte</div>
+	<div class="col-xs-9 blocCommentaire">
+		@Html.TextArea("tbxMessage_"+@Model.Id,null,new {  @style = "width:100%;font-size:15px;",@rows = "5"  }) 
+	</div>
+ </div>
+<div class="col-xs-4 col-xs-offset-5 row blocFormulaire" align="center" style="margin-top:8px;margin-bottom:0px;">
+	<button id="btn-submit_@Model.Id" onclick="creerCommentaire(@Model.Id,false)" class="btn btn-primary" style="margin-right:30px" ><span class="glyphicon glyphicon-ok-sign"></span>Valider</button>
+</div> 

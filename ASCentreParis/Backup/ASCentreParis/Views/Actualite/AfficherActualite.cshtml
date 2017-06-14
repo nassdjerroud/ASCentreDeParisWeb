@@ -1,0 +1,57 @@
+﻿@model Models.Actualite
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container" style="margin-left:15px;width:98%">
+	<div class="col-lg-12  noMarginPaddingVertical" >	
+		<h1 style="font-size:28px;">@Model.TitreIHM</h1>
+	</div>
+	<div class="col-lg-12 ResumeActualite" style="margin-top:15px;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.Raw(@Model.Resume_HTML)
+	</div>
+	<div>
+	@if(!String.IsNullOrEmpty(@Model.CheminDocument))
+	         {
+		  <div  class="col-lg-12"  align="center" style="margin-top:20px;">
+		  	@if(@Model.isImage.Value)
+				{
+				<img align="center"  alt="" class="image-Modal-actualite img-responsive img-rounded" src="@Url.Content(@Model.CheminDocument)" title="@Model.Titre">
+				}
+			else
+				{
+				<video title="Cliquez dans le cadre pour lancer la vidéo" class="video-Modal-actualite" controls > 
+					<source src="@Url.Action("ReadVideo","Actualite",new {idActualite=@Model.Id})" > 
+				</video>
+				}			
+		   </div>
+	         }
+	</div>
+	<div class="col-lg-12" style="margin-top:23px;margin-bottom:20px;">
+	      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.Raw(@Model.Texte_HTML)</p>
+	 </div>
+	<div align="center" style="margin-top:35px;">
+		 <button type="button" class="btn btn-default" style="margin-left:30px;" onclick="location.href='@Url.Action("Index", "Home")';return false;">Retour</button>
+		<span title="Commentaires" style="margin-left:50px;">
+			<input id="linkShowCommentaires_@Model.Id" onclick="afficherCommentaires(@Model.Id,false)"  class="linkButton"   value="@Model.ListeCommentaires.Count commentaire(s)" alt="Commentaire(s)" title="Commentaire(s)"  />
+			<input id="linkHideCommentaires_@Model.Id" onclick="masquerCommentaires(@Model.Id,false)" style="display:none;" class="linkButton"   value="Masquer" alt="Commentaire(s)" title="Masquer le(s) commentaire(s)"  />
+		</span>
+	 </div>
+	<div id="divPartialListCommentaires_@Model.Id" class="col-lg-12 noMarginPaddingVertical">
+		@Html.Partial("~/Views/Commentaire/Commentaires.cshtml",@Model)
+	</div>
+</div>
+
+<script> 
+    $(document).ready(function() {
+	// MAJ des classes pour les couleurs des commentaires
+    	setCommentsColors();
+	setUtilisateurName();
+    });
+</script>
+
+
+@Html.Partial("~/Views/Shared/_PartialBackToTop.cshtml")
+<script src="@Url.Content("~/Scripts/Commentaires.js")"></script>

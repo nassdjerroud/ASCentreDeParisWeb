@@ -1,0 +1,34 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Contacts</h1>
+<div class="DivInfoContact">
+
+	<h2>Renseignements</h2>
+	<p>Pour toute demande de renseignements, veuillez contacter Nordine ADJABI
+	(06 25 54 10 56 ou n.adjabi@yahoo.fr).</p>
+
+	<h2>Adresse du club</h2>
+	<p>7 rue de la Ville Neuve 75002 PARIS - Métro : Bonne Nouvelle
+	<br/>Le local est ouvert certains soirs de 18h à 20.</p>
+	<div id="googleMap" align="center" class="CoinsArrondis" style="width:40%;height:300px;"></div>
+
+
+	<h2>Contact site internet</h2>
+	<p>Pour toute remarque concernant le site, veuillez contacter le créateur du site François LARUAZ (francois.laruaz@gmail.com).</p>
+</div>
+
+<script src="@Url.Content("~/Scripts/Contacts.js")"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLaAyy02NQCH_4rLSFhjwyqBoifFX6Qto&callback=myMap"></script>
+
+
+<script type="text/javascript">
+		myMap();
+</script>
+
+@Html.Partial("~/Views/Shared/_PartialBackToTop.cshtml")
+
+
+

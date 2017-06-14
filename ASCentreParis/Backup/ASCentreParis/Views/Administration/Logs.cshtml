@@ -1,0 +1,49 @@
+﻿@model Models.ObjGestionLogs
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Logs du site</h1>
+
+
+
+   <div style="margin-top:50px" id="infosconnectionBDD">
+      <span style="font-weight:bold;font-size:16px;margin-right:15px;">Informations connection BDD :</span>
+	  @Html.Raw(@Model.infoConnectionBBD)
+   </div>
+
+
+
+	 <div id="VueRecherche" style="padding-top:40px;display:none;width:100%;" >
+	  	<div id="loading" class="load" style="display:none">
+	    </div>
+	   
+        <table id="table_id" class="datatable table table-bordered table-striped" style="word-wrap: break-word;" cellpadding="0" cellspacing="0">
+            <thead class="couleurclub">
+                <tr class="couleurclub" style="text-align:left;">
+                    <th scope="col" class="sortableColumn couleurclub " id="Id" style="width: 5% !important; text-align:center"><div>Id</div></th>
+                    <th scope = "col" class="sortableColumn couleurclub" id="Date" style="width: 10% !important; text-align:center"><div>Date</div></th>
+                    <th scope = "col" class="sortableColumn couleurclub" id="Thread" style="width: 10% !important; text-align:center"><div>Thread</div></th>
+                    <th scope = "col" class="sortableColumn couleurclub" id="Level" style="width: 10% !important; text-align:center"><div>Level</div></th>
+                    <th scope = "col" class="sortableColumn couleurclub" id="Logger" style="width: 25% !important; text-align:center"><div>Logger</div></th>
+                    <th scope = "col" class="sortableColumn couleurclub" id="Message" style="width: 25% !important; text-align:center"><div>Message</div></th>
+				    <th scope = "col" class="sortableColumn couleurclub" id="Exception" style="width: 15% !important; text-align:center"><div>Exception</div></th>
+				</tr>
+            </thead>
+        </table>
+        <br /><br />
+    </div>
+
+
+<script src="@Url.Content("~/Scripts/AdminLogs.js")"></script>
+
+<script type="text/javascript">
+	// APPEL DES FONCTIONS AU CHARGEMENT DE LA PAGE
+    $(document).ready(function () {
+	  // Gestion de la table des logs
+        btnRecherche_onclick();
+    });
+</script>
+
+@Html.Partial("~/Views/Shared/_PartialBackToTop.cshtml")

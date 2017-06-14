@@ -1,0 +1,12 @@
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/obj/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Release/Commons.dll.config
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Release/Commons.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/obj/Release/Commons.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Release/log4net.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Release/Models.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Release/System.Web.Mvc.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Release/System.Web.Razor.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Release/System.Web.WebPages.Razor.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Release/System.Web.WebPages.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Release/Microsoft.Web.Infrastructure.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Release/System.Web.WebPages.Deployment.dll

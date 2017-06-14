@@ -1,0 +1,29 @@
+﻿@model Models.ObjDocument
+
+@{
+    // Variable allant être incrémentée et utilisée pour afficher correctement le nombre de lignes
+    int NbDocuments=0;
+}
+
+
+
+<div class="container-fluid noMarginPaddingHorizontal" >
+    <div id="content"  class="col-xs-12 noMarginPaddingHorizontal" style="width:100%" >   
+        @Html.Raw(@"<div class=""row"" >")
+        @foreach (Models.Document doc in @Model.ListeDocuments)
+                 {
+                  if(@NbDocuments>0 && @NbDocuments%@Model.NombreDocumentsParLigne==0)
+                        {
+                         @Html.Raw("</div>")
+                         @Html.Raw(@"<div class=""row"">")
+                        }
+                    <div align="center" class="col-xs-3 divGallery project-imgs">
+                        @Html.Partial("DisplayDocument", doc)
+                    </div>
+                NbDocuments++;
+                }
+                @Html.Raw("</div>")
+    </div>
+</div>	
+<div id="page_navigation"> </div>
+

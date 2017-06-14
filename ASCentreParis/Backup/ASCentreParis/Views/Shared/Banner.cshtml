@@ -1,0 +1,37 @@
+﻿@using MvcSiteMapProvider.Web.Html;
+
+
+
+
+<div id="banner"  class="noMarginPaddingVertical" role="banner">
+    <div class="row styleTitre">
+            <div style="float:left;margin-left:5px;"  class="noMarginVertical">
+                <img id="bdf-logo" src="@Url.Content(Commons.Const.CheminLogoApplication)" style="width:130px;height:130px" alt="LOGO application" class="img-responsive" />
+            </div>
+			 <div style="float:center;margin-left:20px;display: inline-block;">
+				 <div class="row noMarginVertical" style="font-size:22px;">
+		                <h1 style="margin-top:30px;margin-bottom:18px;">
+		                    <a href="@Url.Content("~/")" title="ASCentreDeParis">A.S. CENTRE DE PARIS</a>
+		                </h1>
+				</div>
+				<div class="row noMarginVertical" style="font-size:14px;margin-left:20px;">
+				         <h2 style="color:white;margin-top:0px;margin-bottom:0px;">Club filleul du Paris Saint Germain créé en 1933</h2>
+				</div>
+			</div>
+			 <div style="float:right;margin-top:28px;margin-right:55px;" >
+			    @if(System.Web.HttpContext.Current.Session[Commons.Const.sessionName_UserConnecte]==null || ((Models.Utilisateur)(System.Web.HttpContext.Current.Session[Commons.Const.sessionName_UserConnecte])).Login== null)
+			     {
+                	<span id="span_login" title="Se connecter"><img id="login" onclick="loginOnClick();" src="@Url.Content(Commons.Const.ImageLogin)"  alt="Login" class="ImageLogin img-responsive" /></span>
+				}
+			 	else
+				{
+					<span id="span_login_ok" align="center" title="Connecté"><img id="login_ok" src="@Url.Content(Commons.Const.ImageLogin_ok)"  alt="Login_ok" class="ImageLogin_ok img-responsive"  /></span>
+					<span style="color:white">@(((@Models.Utilisateur)(@System.Web.HttpContext.Current.Session[@Commons.Const.sessionName_UserConnecte])).Login)</span>
+					<div style="margin-top:7px;">
+						<span id="span_deconnection" align="left" title="Se déconnecter"><a onclick="logOff()" style="font-size:14px;color:white;cursor:pointer;">Se déconnecter</a></span>
+					</div>
+				}
+		</div>
+    </div>
+</div>
+

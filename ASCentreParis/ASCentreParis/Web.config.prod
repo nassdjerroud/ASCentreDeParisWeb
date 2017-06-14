@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Web.config file for ASCentreParis.
+
+The settings that can be used in this file are documented at 
+http://www.mono-project.com/Config_system.web and 
+http://msdn2.microsoft.com/en-us/library/b5ysx397.aspx
+-->
+<configuration>
+
+  <configSections>
+    <section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler,log4net" />
+  </configSections>
+  <connectionStrings>
+    <add name="MySQL" connectionString="SERVER=91.216.107.196; DATABASE=ascentredeparis_fr_ascentreparis; UID=user_test; PASSWORD=Chimbonda53" providerName="MySql.Data.MySqlClient" />
+  </connectionStrings>
+  <appSettings>
+    <add key="MvcSiteMapProvider_UseExternalDIContainer" value="false" />
+    <add key="MvcSiteMapProvider_IncludeAssembliesForScan" value="ASCentreParis" />
+    <add key="MvcSiteMapProvider_ScanAssembliesForSiteMapNodes" value="true" />
+    <add key="MvcSiteMapProvider_EnableLocalization" value="true" />
+    <add key="MvcSiteMapProvider_DefaultSiteMapNodeVisibiltyProvider" value="MvcSiteMapProvider.FilteredSiteMapNodeVisibilityProvider, MvcSiteMapProvider" />
+    <add key="MvcSiteMapProvider_SecurityTrimmingEnabled" value="false" />
+    <add key="MvcSiteMapProvider_CacheDuration" value="5" />
+  </appSettings>
+  <system.web>
+    <siteMap defaultProvider="MvcSiteMapProvider" enabled="true">
+      <providers>
+        <clear />
+        <add name="MvcSiteMapProvider" type="MvcSiteMapProvider.DefaultSiteMapProvider, MvcSiteMapProvider" siteMapFile="~/Mvc.Sitemap" securityTrimmingEnabled="false" cacheDuration="5" enableLocalization="true" scanAssembliesForSiteMapNodes="true" includeAssembliesForScan="" excludeAssembliesForScan="" attributesToIgnore="visibility" nodeKeyGenerator="MvcSiteMapProvider.DefaultNodeKeyGenerator, MvcSiteMapProvider" controllerTypeResolver="MvcSiteMapProvider.DefaultControllerTypeResolver, MvcSiteMapProvider" actionMethodParameterResolver="MvcSiteMapProvider.DefaultActionMethodParameterResolver, MvcSiteMapProvider" aclModule="MvcSiteMapProvider.DefaultAclModule, MvcSiteMapProvider" siteMapNodeUrlResolver="MvcSiteMapProvider.DefaultSiteMapNodeUrlResolver, MvcSiteMapProvider" siteMapNodeVisibilityProvider="MvcSiteMapProvider.DefaultSiteMapNodeVisibilityProvider, MvcSiteMapProvider" siteMapProviderEventHandler="MvcSiteMapProvider.DefaultSiteMapProviderEventHandler, MvcSiteMapProvider" />
+      </providers>
+    </siteMap>
+    <globalization fileEncoding="utf-8" />
+    <compilation debug="true" targetFramework="4.5">
+      <assemblies />
+    </compilation>
+    <httpRuntime targetFramework="4.5" maxRequestLength="131072" maxUrlLength="32766" maxQueryStringLength="32766" />
+  </system.web>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-9.0.0.0" newVersion="9.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-1.5.2.14234" newVersion="1.5.2.14234" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.2.3.0" newVersion="5.2.3.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+  <system.data>
+    <DbProviderFactories>
+      <remove invariant="MySql.Data.MySqlClient" />
+      <add name="MySQL Data Provider" invariant="MySql.Data.MySqlClient" description=".Net Framework Data Provider for MySQL" type="MySql.Data.MySqlClient.MySqlClientFactory, MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
+    </DbProviderFactories>
+  </system.data>
+  <system.webServer>
+    <httpErrors>
+      <remove statusCode="502" subStatusCode="-1" />
+      <remove statusCode="501" subStatusCode="-1" />
+      <remove statusCode="500" subStatusCode="-1" />
+      <remove statusCode="412" subStatusCode="-1" />
+      <remove statusCode="406" subStatusCode="-1" />
+      <remove statusCode="405" subStatusCode="-1" />
+      <remove statusCode="404" subStatusCode="-1" />
+      <remove statusCode="403" subStatusCode="-1" />
+      <remove statusCode="401" subStatusCode="-1" />
+      <error statusCode="400" path="D:\www\ascentredeparis.fr\error_docs\bad_request.html" />
+      <error statusCode="407" path="D:\www\ascentredeparis.fr\error_docs\proxy_authentication_required.html" />
+      <error statusCode="414" path="D:\www\ascentredeparis.fr\error_docs\request-uri_too_long.html" />
+      <error statusCode="415" path="D:\www\ascentredeparis.fr\error_docs\unsupported_media_type.html" />
+      <error statusCode="503" path="D:\www\ascentredeparis.fr\error_docs\maintenance.html" />
+      <error statusCode="401" prefixLanguageFilePath="" path="D:\www\ascentredeparis.fr\error_docs\unauthorized.html" />
+      <error statusCode="403" prefixLanguageFilePath="" path="D:\www\ascentredeparis.fr\error_docs\forbidden.html" />
+      <error statusCode="404" prefixLanguageFilePath="" path="D:\www\ascentredeparis.fr\error_docs\not_found.html" />
+      <error statusCode="405" prefixLanguageFilePath="" path="D:\www\ascentredeparis.fr\error_docs\method_not_allowed.html" />
+      <error statusCode="406" prefixLanguageFilePath="" path="D:\www\ascentredeparis.fr\error_docs\not_acceptable.html" />
+      <error statusCode="412" prefixLanguageFilePath="" path="D:\www\ascentredeparis.fr\error_docs\precondition_failed.html" />
+      <error statusCode="500" prefixLanguageFilePath="" path="D:\www\ascentredeparis.fr\error_docs\internal_server_error.html" />
+      <error statusCode="501" prefixLanguageFilePath="" path="D:\www\ascentredeparis.fr\error_docs\not_implemented.html" />
+      <error statusCode="502" prefixLanguageFilePath="" path="D:\www\ascentredeparis.fr\error_docs\bad_gateway.html" />
+    </httpErrors>
+  </system.webServer>
+
+</configuration>

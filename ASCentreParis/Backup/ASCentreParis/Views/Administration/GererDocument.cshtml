@@ -1,0 +1,86 @@
+@model Models.ObjGestionDocuments
+
+
+@{
+	var classDivUpload="";
+	var classDivChemin="";
+	var nomFichier="";
+}
+<div class="noMarginPaddingVertical" id="form-container">
+	<div class="modal-header noMarginPaddingVertical">
+	    <button type="button" class="close" onclick="fermerModalAdministration();" aria-hidden="true">&times;   </button>
+	    <h3 class="modal-title noMarginPaddingVertical" style="color:white;" id="imageModalLabel">@Model.TitrePage</h3>
+	</div>
+
+	<div class="container modal-body noMarginPaddingVertical">
+
+		<div class="noMarginPaddingVertical">
+	     @using(Html.BeginForm("GererDocumentPost", "Administration",  FormMethod.Post, new { id = "MyForm",enctype = "multipart/form-data" }))
+                    {
+			        <h4>Informations principales</h4>
+                     <div   class="col-lg-6 col-lg-offset-2" >
+		                 <p class="ValidationKO" id="BlocMessageKO" >@Model.messageKO</p>
+                            @Html.ValidationSummary("")
+                     </div>
+	                  <div class="ValidationOK col-lg-4 col-lg-offset-3" >
+		                  <p>@Model.messageOK</p>
+                     </div>
+                     @Html.TextBoxFor(model => model.Document.Id ,new { @id = "tbxId", @style = "display:none;"  })
+
+					<div class="col-lg-10  row blocFormulaire">
+	                 	<span class="col-lg-2 col-lg-offset-1 libelleFormulaire">Titre</span><span class="col-lg-6">@Html.TextBoxFor(model => model.Document.Titre ,new { @id = "tbxTitre", @style = "width:100%;"  }) </span>
+	                 </div>
+					<div class="col-lg-10 row blocFormulaire">
+	                 	<span class="col-lg-2 col-lg-offset-1 libelleFormulaire">Catégorie document (*)</span><span class="col-lg-6">@Html.DropDownListFor(model => model.Document.idCategorieDocument, new SelectList(Model.lCategoriesDocument, "ID", "VALEUR_STRING", Model.lCategoriesDocument), new { @id = "ddlCategorieDocument", @style = "width:50%;" })</span>
+	                 </div>
+		              <div class="col-lg-10 row blocFormulaire">
+	                 	<span class="col-lg-2 col-lg-offset-1 libelleFormulaire">Texte</span><span class="col-lg-6">@Html.TextAreaFor(model => model.Document.Texte ,new { @id = "tbxTexte", @style = "width:100%;", @rows = "6"  })</span>
+	                 </div>
+					 <div class="col-lg-10 row blocFormulaire">
+	                 	<span class="col-lg-2 col-lg-offset-1 libelleFormulaire">Ordre (*)</span><span class="col-lg-6">@Html.TextBoxFor(model => model.Document.Ordre ,new { @id = "tbxLienClassement", @style = "width:15%;"}) </span>
+	                 </div>
+			        <div  id="formulaireDocument" >
+				    	<div class="col-lg-10 row blocFormulaire">
+			            	<span class="col-lg-2 col-lg-offset-1 libelleFormulaire">Document (*)</span>
+							<span class="col-lg-6"> 
+						        @if(!String.IsNullOrEmpty(@Model.Document.CheminDocument))
+								{
+						            classDivChemin="";
+									classDivUpload="display:none";
+									nomFichier=@Model.Document.CheminDocument.Replace(Commons.Const.UploadDocumentPath+"/","");
+								}
+								else
+								{
+						            classDivChemin="display:none";
+									classDivUpload="";
+									nomFichier="N/A";
+								}
+
+								<div class="row"  style="@classDivChemin" id="suppression_document_Document">			      
+									@Html.Label("NomFichierDocument", @nomFichier, new {@id="LblNomFichierDocument", @class="lblNomFichier" , @style="font-size:15px"})
+							        <a class="actionButtons" align="right"  href="#" style="margin-left:13px;"	
+										onclick="javascript:supprimerFichier('Administration','Document',@Model.Document.Id,'Document');">
+                            						<img src="../resources/img/cross.png" title="Supprimer le fichier"/>
+                            					</a>	
+								</div>
+								<div  class="inputDoc" style="@classDivUpload" id="upload_document_Document">
+									<input onchange="GetFileInfo ('FileUploadDocument','infoFichier')"  type="file" id="FileUploadDocument" />
+								<div id="infoFichier" style="margin-top:15px"></div>
+						        </div>
+					        </span>
+			             	    </div>
+					</div>
+				   	<div class="col-lg-3 col-lg-offset-3 row blocFormulaire" align="center" style="margin-top:35px;margin-bottom:20px;">
+
+				         <button id="btn-submit" class="btn btn-primary" style="margin-right:40px" ><span class="glyphicon glyphicon-ok-sign"></span>@Model.LibelleBoutonSauvegarde</button>
+			             <button type="button" class="btn btn-default" onclick="fermerModalAdministration();">Retour</button>
+	   				 </div> 
+	               }
+	    </div>	
+	</div>
+</div>
+
+<script src="@Url.Content("~/Scripts/AdminDocuments.js")"></script>
+ <script type="text/javascript">
+		initformWithFiles('Administration','Document',['Document'],[]);	
+</script>

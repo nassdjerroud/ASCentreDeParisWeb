@@ -1,0 +1,171 @@
+/*** tabs **/
+
+.tabs-section .tabs-content
+{
+	/* zone contenu des onglets */ 
+	background : #FFFFFF;
+	border : 1px solid #8970EC;
+	
+	padding:12px;
+}
+
+/* onglets non actifs */
+.nav-tabs li a 
+{
+	
+	background: #C1D7F5;
+	/* desactivation temporaire des gradients
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#C1D7F5', endColorstr='#FBFBFB',GradientType=0 );
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#C1D7F5), to(#FBFBFB));
+	background-image: -moz-linear-gradient(top, #C1D7F5, #FBFBFB);
+	background-image: -ms-linear-gradient(top, #C1D7F5, #FBFBFB);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #C1D7F5), color-stop(100%, #FBFBFB));
+	background-image: -webkit-linear-gradient(top, #C1D7F5, #FBFBFB);
+	background-image: -o-linear-gradient(top, #C1D7F5, #FBFBFB);
+	background-image: linear-gradient(#C1D7F5, #FBFBFB); 
+	*/	
+		
+	/* border: 1px solid #BDD5F5; */
+	
+	/*border-top: 1px solid #1D61AA;*/
+	
+	border-top: 1px solid #BDD5F5;
+	border-right: 1px solid #BDD5F5;
+	border-left: 1px solid #BDD5F5;
+	border-bottom: 1px solid #8970EC;
+
+	
+	/* border-color: #3D3D3D; */
+	font-size: 1em;
+	font-weight: bold;
+	padding: 10px 20px;
+	text-decoration: none;
+	/* border-radius: 5px 5px 0 0; */
+	/* margin-right: 12px; */
+	color: #8970EC;
+	
+	text-decoration:none;
+}
+
+.nav-tabs > li > a:hover, 
+.nav-tabs > li > a:focus
+{
+	border: 1px solid #8970EC;
+	background: #C1D7F5;
+}
+
+.nav-tabs > li.active > a:focus 
+{
+	/* border: 1px solid #BDD5F5; */
+
+	border-top: 1px solid #BDD5F5;
+	border-right: 1px solid #BDD5F5;
+	border-left: 1px solid #BDD5F5;
+	border-bottom: 1px solid #8970EC;
+
+	background: #8970EC;
+}
+
+.nav-tabs > li.active > a:hover 
+{
+	/* border: 1px solid #BDD5F5; */
+
+	border-top: 1px solid #BDD5F5;
+	border-right: 1px solid #BDD5F5;
+	border-left: 1px solid #BDD5F5;
+	border-bottom: 1px solid #8970EC;
+
+	background: #8970EC;
+}
+
+/* onglet actif */
+.nav-tabs > li.active > a
+{
+	
+	background: #8970EC;
+	/* desactivation temporaire des gradients
+	background-image: -moz-linear-gradient(top, #9370DB 0%, #9371DB 100%); 
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9370DB), color-stop(100%, #9371DB)); 
+	background-image: -webkit-linear-gradient(top, #9370DB 0%, #9371DB 100%); 
+	background-image: -o-linear-gradient(top, #9370DB 0%, #9371DB 100%); 
+	background-image: -ms-linear-gradient(top, #9370DB 0%, #9371DB 100%);
+	background-image: linear-gradient(to bottom, #9370DB 0%, #9371DB 100%)
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9370DB', endColorstr='#9371DB',GradientType=0 );
+	*/
+	
+	/*color: white; */
+	/* background-color : #EFF7FC; */ 
+	/* border: 1px solid ; */
+	
+	border-top: 1px solid #BDD5F5;
+	border-right: 1px solid #BDD5F5;
+	border-left: 1px solid #BDD5F5;
+	border-bottom: 1px solid BDD5F5;
+	
+	/* border: 1px solid #BDD5F5; */
+
+	color:white;
+	
+	/* padding-top:50px; */
+	
+}
+
+.nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: white;
+ }
+ 
+/* zone contour entête des onglets */
+
+.nav-tabs-content .tabs-section
+{
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+.nav-tabs-content .tabs-section .tabs-title
+{
+	background: none;
+	display: block;
+	color: #133e77;
+	padding: 0;
+	top: 0;
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+
+.nav-tabs > li > a{
+	border-radius:10px 10px 0 0;	
+}
+
+.nav-tabs
+{
+	/*
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9370DB', endColorstr='#9371DB',GradientType=0 );
+	border-bottom: 0;
+	background-image: -moz-linear-gradient(top, #9370DB 0%, #9371DB 100%); 
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9370DB), color-stop(100%, #9371DB)); 
+	background-image: -webkit-linear-gradient(top, #9370DB 0%, #9371DB 100%); 
+	background-image: -o-linear-gradient(top, #9370DB 0%, #9371DB 100%); 
+	background-image: -ms-linear-gradient(top, #9370DB 0%, #9371DB 100%);
+	background-image: linear-gradient(to bottom, #9370DB 0%, #9371DB 100%);
+		
+	border-radius:10px 10px 0 0;
+	*/	
+	border:none;
+}
+
+/*
+.nav-tabs{
+	border-radius:10px 10px 0 0;	
+}
+*/
+
+/* gestion affichage des onglets
+	pour des écrans<768 px les onglets passent en mode "accordéon" */
+	
+@media (max-width: 768px) { 
+    .nav-tabs > li {
+        float:none;
+        padding-top:2px;
+    }
+}

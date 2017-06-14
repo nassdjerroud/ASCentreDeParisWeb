@@ -1,0 +1,15 @@
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Debug/Commons.dll.config
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Debug/Commons.dll.mdb
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Debug/Commons.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/obj/Debug/Commons.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/obj/Debug/Commons.dll.mdb
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Debug/log4net.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Debug/Models.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Debug/Models.dll.mdb
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Debug/System.Web.Mvc.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Debug/System.Web.Razor.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Debug/System.Web.WebPages.Razor.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Debug/System.Web.WebPages.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Debug/Microsoft.Web.Infrastructure.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Commons/bin/Debug/System.Web.WebPages.Deployment.dll

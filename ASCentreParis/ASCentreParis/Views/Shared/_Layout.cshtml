@@ -1,0 +1,74 @@
+?@using MvcSiteMapProvider.Web.Html;
+@using System.Web.Optimization;
+@using System.Web.Optimization.Extensions;
+<!DOCTYPE html>
+<html class="no-js" lang="fr" dir="ltr">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>AS Centre De Paris</title>
+    <meta name="description" content="Site officiel de la section football de l'AS Centre De Paris. Ce club  créé en 1933 est un club filleul du Paris Saint Germain." />
+    <meta name="keywords" content="ASCP,AS Centre De Paris,football,District,92,club football,Paris,association,Bonne Nouvelle,soccer" />
+   <META NAME="OWNER" CONTENT="AS Centre De Paris">
+   <META NAME="ROBOTS" CONTENT="index,all">
+   <META NAME="AUTHOR" CONTENT="AS Centre De Paris">
+   <META NAME="TITLE" CONTENT="AS Centre De Paris">
+
+    @Styles.Render("~/resources/bootstrapv311/css/bootstrap")
+    <!-- Barre de fonction - gestion des drapeaux - internationalisation -->
+    @Styles.Render("~/resources/extPlugins/css/icons")
+    <!-- bibliothèque de fonts (elusive-fonts)  -->
+    @Styles.Render("~/resources/elusive-iconfont/css/font")
+    <!--  Layout.cshtml Styles -->
+    @Styles.Render("~/resources/bdf/css")
+    @Styles.Render("~/resources/jquery/css")
+    @Styles.Render("~/Style/DataTables")
+    @Styles.Render("~/resources/ajoutsCSS")
+
+    @*<link rel="stylesheet" href="~/resources/bdf/css/bdf.datatable.css">*@
+    <!--[if gte IE 8]><link rel="stylesheet" href="~/resources/bdf/css/bdf.charte_gte_ie8.css" media="screen"><![endif]-->
+    <!--  gestion du support HTML / propriétés par les différents navigateurs -->
+    <script src="@Scripts.Url("~/Scripts/modernizr")"></script>
+
+    <!--  jQuery -->
+    <!--  gestion des placeholders dans IE -->
+    @Scripts.Render("~/Scripts/placeholders")
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.9.1.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+    @Scripts.Render("~/resources/ajouts")
+
+    <link rel="stylesheet" type="text/css" media="screen" href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/1.3.4/jquery.fancybox-1.3.4.css" />
+
+    <link rel="shortcut icon" href="@Url.Content("~/ressources/Images/favicon_foot.ico")" type="image/x-icon">
+    <link rel="icon" href="@Url.Content("~/ressources/Images/favicon_foot.ico")" type="image/x-icon">
+
+    @Html.MvcSiteMap().CanonicalTag()
+
+    @Html.MvcSiteMap().MetaRobotsTag()
+
+</head>
+<body style="margin-top:-25px;width:100%;">
+    <div class="container-fluid styleContainerLayout" >
+        <div id="Header" class="noMarginPaddingVertical noMarginPaddingVertical">
+            @Html.Partial("Header")
+        </div>
+		@Html.Hidden("HiddenIsSmallScreen", false)
+        @Html.Partial("Transverse")
+        @RenderBody()
+        @Html.Partial("~/Views/Shared/_PartialBackToTop.cshtml")
+        
+        <footer>
+            <p class="footer">&copy; 2017 - AS Centre De Paris</p>
+        </footer>
+    </div>
+
+    <!--  Modal -->
+    <div id="modal-container" class="modal fade hidden-print" tabindex="-1" role="dialog">
+        <div id="modal-dialog" class="CoinsArrondis modal-dialog LargeModal">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

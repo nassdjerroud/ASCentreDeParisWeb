@@ -1,0 +1,73 @@
+﻿@model Models.Equipe
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="divTitrePage row">
+    <img src="@Url.Content(Commons.Const.CheminMiniBandeau_violet)" class="minibandeau_violet" />
+    <h1>Equipe @Model.Libelle</h1>
+</div>
+
+
+
+	<div class="DivInfoEquipe">
+		<span style="margin-top:40px;" class="CommentaireInfoEquipe">@ASCentreParis.Helpers.HtmlHelper.HTMLRaw("Commentaire",Model.Commentaire)</span>
+	</div>
+	@if(!String.IsNullOrEmpty(Model.InformationsDivision))
+		 {
+		<div class="row DivInfoEquipe"><span class="TitreInfoEquipe colorclub">Championnat :</span> 
+	           <span class="TexteInfoEquipe">
+                @ASCentreParis.Helpers.HtmlHelper.HTMLRaw("InformationsDivision", @Model.InformationsDivision)
+			   @if(!String.IsNullOrEmpty(Model.LienClassement))
+			     {
+	              <a class="colorclub" href="@Model.LienClassement">(Lien FFF)</a>
+			     }
+	         </span>
+	     </div>
+         }
+    @if(!String.IsNullOrEmpty(Model.InformationsEntrainements))
+		     {
+	          <div class="row DivInfoEquipe"><span class="TitreInfoEquipe colorclub">Entrainements :</span> 
+				<span class="TexteInfoEquipe">@ASCentreParis.Helpers.HtmlHelper.HTMLRaw("InformationsEntrainements", Model.InformationsEntrainements)</span></div>
+		     }
+	
+    @if(!String.IsNullOrEmpty(Model.InformationsResponsable))
+		     {
+             <div class="row DivInfoEquipe"><span class="TitreInfoEquipe colorclub">Responsable(s) :</span>
+			 <span class="TexteInfoEquipe">
+                @ASCentreParis.Helpers.HtmlHelper.HTMLRaw("InformationsResponsable", Model.InformationsResponsable)
+                 </span></div>
+		     }
+    
+	@if(!String.IsNullOrEmpty(Model.CheminCalendrier))
+		{
+			using (Html.BeginForm("TelechargerDocument", "Equipe", FormMethod.Post, new { @class = "formEquipe"}))
+				{
+				<div class="row DivInfoEquipe">
+				    <input formaction="/Equipe/TelechargerDocument?idEquipe=@Model.Id&TypeDocument=Calendrier"   type="submit" class="linkButton formEquipe"   value="Télécharger le calendrier" alt="Télécharger le fichier" title="Télécharger le fichier"  />
+				 </div>
+	            }
+		}
+
+
+
+	@if(!String.IsNullOrEmpty(Model.CheminFicheEntrainement))
+		{
+			using (Html.BeginForm("TelechargerDocument", "Equipe", FormMethod.Post, new { @class = "formEquipe"}))
+				{
+				<div class="row DivInfoEquipe">
+				    <input formaction="/Equipe/TelechargerDocument?idEquipe=@Model.Id&TypeDocument=FicheEntrainement"   type="submit" class="linkButton formEquipe"   value="Télécharger la fiche d'entrainement" alt="Télécharger le fichier" title="Télécharger le fichier"  />
+				 </div>
+	            }
+		}
+
+	@if(!String.IsNullOrEmpty(Model.CheminPhoto))
+		{
+		 <div align="center" class="divGallery" style="margin-top:25px;">
+	      <img  src="@Url.Content(@Model.CheminPhoto)" title="Photo de l'équipe @Model.Libelle" alt="@Model.Libelle" class="imageEquipe img-responsive img-rounded img-thumbnail">
+	    </div>
+		}
+
+
+	

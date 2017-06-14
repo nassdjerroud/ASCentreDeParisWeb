@@ -1,0 +1,178 @@
+
+/********** Hack ie8, ie9 **********/
+
+nav#tool-bar.navbar-default li a
+{
+	padding: 4px 12px;
+}
+
+nav[role="navigation"]{
+	filter:none!important;
+	background:#6f6f6f;
+}
+
+/* surcharge - pb avec gradient et arrondis sous IE */
+/*
+.btn {
+	filter:none!important;
+	background:#9370DB;
+	border-radius:4px;
+}
+*/
+
+.btn:active, .btn.active
+{	
+	background-image: none;
+  	outline: 0;
+	/*background-color:#F5F5F5;*/
+  	border-color:#BDD5F5;
+  	color:#ffffff;
+}
+
+.bootstrap-select .btn
+{
+	border: none;
+}
+
+.bootstrap-select .btn:hover,
+.bootstrap-select .btn:focus,
+.bootstrap-select .btn:active,
+.bootstrap-select .btn:disabled,
+.bootstrap-select .btn[disabled]
+{
+	filter:none!important;
+}
+
+/*
+table.table thead>tr{
+	filter:none!important;
+	 background:#9370DB;
+}
+*/
+
+/* onglets non actifs */
+/*
+.nav-tabs li a {
+	filter:none!important;
+	background:#C1D7F5;
+}
+*/
+
+/* onglet actif */
+/*
+.nav-tabs > li.active > a
+{
+	filter:none!important;
+	background:#9370DB;	
+	border: 1px solid #9371DB;
+}
+
+.nav-tabs > li > a:hover, 
+.nav-tabs > li > a:focus,
+.nav-tabs > li.active > a:hover, 
+.nav-tabs > li.active > a:focus 
+{
+	background:#9370DB;	
+}
+
+.nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #FFFFFF;
+ }
+
+.nav-tabs > li.active > a:hover, 
+.nav-tabs > li.active > a:focus 
+{
+	background:#9370DB;
+	border: 1px solid #9371DB;
+}
+*/
+
+/*
+.nav-tabs > li.active > a,
+.nav-tabs > li > a:focus,
+.nav-tabs > li.active > a:focus
+.nav-tabs > li.active > a:hover{
+	filter:none!important;
+	background:#9370DB;	
+}
+*/
+
+/*
+.nav-tabs > li > a:hover{
+	filter:none!important;
+	background:#C1D7F5;
+}
+
+
+.nav-tabs > li > a:hover, 
+.nav-tabs > li > a:focus,
+.nav-tabs > li.active > a:hover, 
+.nav-tabs > li.active > a:focus 
+{
+	border: 1px solid #9371DB;
+}
+*/
+
+/* gestion du roll over sur les lignes du tableau */
+/*
+table tbody tr:hover, table tbody tr:hover a {
+	filter:none!important;
+	background:#9370DB;	
+	color: #FFF;
+}
+*/
+
+input.form-control{
+	padding: 0px 12px 0px 12px;
+}
+
+/* partie gestion du chevron dans assistant de saisie */
+
+/* ligne de séparation des chevrons */
+.wizard .steps li .chevron 
+{
+ position: absolute;
+ top: 0;
+ right: -14px;
+ display: block;
+ border: 19px solid transparent;
+ border-right: 0;
+ /* background:#FFFFFF; */
+ border-left: 14px solid #BDD5F5;
+}
+
+/* corps du chevron */
+.wizard .steps li .chevron:before 
+{
+ position: absolute;
+ top: -19px;
+ right: 1px;
+ display: block;
+ border: 19px solid transparent;
+ border-right: 0;
+ border-left: 14px solid #F5F5F5;
+ content: "";
+}
+
+/* gestion du add-on lync browser helper sur les numéros de téléphone */
+.baec5a81-e4d6-4674-97f3-e9220f0136c1>a{
+	padding-left:20px;
+}
+
+#example-navbar-collapse li>a:hover{
+	color:#FFF;
+}
+
+/* developpement IE8 */
+.navbar-default .navbar-nav li a:hover, 
+.navbar-default .navbar-nav li a:focus, 
+nav#functionbar.navbar-default li:first-child a:hover, 
+nav#functionbar.navbar-default li:first-child + li a:hover, 
+nav#functionbar.navbar-default li:first-child + li + li a:hover, 
+nav#functionbar.navbar-default li:li:first-child + li + li + li a:hover, 
+nav#functionbar.navbar-default li:li:first-child + li + li + li + li a:hover, 
+nav#functionbar.navbar-default li a:focus {
+    background: none repeat scroll 0% 0% #9370DB;
+    color: #FFF;
+}
+

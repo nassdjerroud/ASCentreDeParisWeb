@@ -1,0 +1,54 @@
+/*
+#nav-tree
+{
+	margin-top: 12px;
+	margin-left:15px;
+	background-color: #F8F8F8;
+	padding: 0;
+	border: 1px solid #E5E5E5;}
+}
+
+#nav-tree ul li { margin-top: 0px;}
+
+#nav-tree ul li a
+{ 
+	display: block;
+	margin-bottom: -1px;
+	padding: 12px 24px;
+	
+}
+#nav-tree .nav-header ~ li 
+{ 
+	padding-left: 15px; 
+}
+
+#nav-tree .tree li.item
+{ 
+	display:none;
+}
+#nav-tree .trunk ul
+{
+ 	margin-left: 3px; 
+}
+
+#nav-tree .folder-open
+{
+ 	color: #777; 
+}
+#nav-tree .folder-open .caret
+{
+ 	border-top-color: #777;
+	border-bottom-color: #777;
+}
+*/
+
+/* 2nd level */
+.tree > li > label {
+  padding:10px 15px;
+}
+
+/* 3rd level */
+.tree > li > ul > li > a {
+  font-size:10pt;
+  margin-left:15px;
+}

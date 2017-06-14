@@ -1,0 +1,63 @@
+.modal-vertical-centered {
+top : 20%!important;
+/* left: 5%!important; */
+}
+
+.modallink{
+	/* font-size: 12px; */
+	text-decoration: none;
+	cursor:pointer;
+}
+
+/* tweaks to get rid of some annoying stuff */
+.modal {
+  overflow: visible;
+}
+.modal:focus {
+  outline: 0;
+}
+
+.modal-content
+{
+	border-radius:0;
+}
+
+.modal-header
+{
+	background: #9370DB;	
+	background: -moz-linear-gradient(top, #9370DB 0%, #9371DB 100%); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9370DB), color-stop(100%, #9371DB)); 
+	background: -webkit-linear-gradient(top, #9370DB 0%, #9371DB 100%); 
+	background: -o-linear-gradient(top, #9370DB 0%, #9371DB 100%); 
+	background: -ms-linear-gradient(top, #9370DB 0%, #9371DB 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9370DB', endColorstr='#9371DB',GradientType=0 );
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1D61AA', endColorstr='#9371DB',GradientType=0 );
+	background-image: linear-gradient(to bottom, #9370DB 0%, #9371DB 100%);
+	border-color: #3D3D3D;
+	border-radius: 0;
+	color: white;
+	font-size: 1em;
+	padding: 12px 12px;
+}
+
+.modal-header h4
+{
+	color: whiteSmoke;
+}
+
+.modal-header .close
+{
+	color: white;
+}
+
+.modal-footer
+{
+	border:0;
+	padding:12px 20px 20px;
+	margin:0;
+}
+
+/* gestion du bouton de fermeture (croix) dans les lightboxes */
+.close {
+    opacity: 1;
+}

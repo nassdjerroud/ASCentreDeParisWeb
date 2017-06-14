@@ -1,0 +1,38 @@
+﻿<style>
+    .back-to-top {
+        cursor: pointer;
+        position: fixed;
+        height: 3em;
+        width: 3em;
+        border: 0;
+        border-radius: 50%;
+        bottom: 50px;
+        right: 50px;
+        text-align: right;
+        padding-top: 15px;
+        background: #9370DB;
+        display: none;
+    }
+</style>
+<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Cliquez pour revenir en haut de la page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
+<script type="text/javascript">
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 50) {
+                    $('#back-to-top').fadeIn();
+                } else {
+                    $('#back-to-top').fadeOut();
+                }
+            });
+            // scroll body to 0px on click
+            $('#back-to-top').click(function () {
+                $('#back-to-top').tooltip('hide');
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 800);
+                return false;
+            });
+
+            $('#back-to-top').tooltip('show');
+        });
+</script>

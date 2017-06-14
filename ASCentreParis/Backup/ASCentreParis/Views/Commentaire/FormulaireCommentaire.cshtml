@@ -1,0 +1,20 @@
+﻿@model Models.Actualite
+
+<h5 style="margin-top:20px;margin-bottom:10px">Ajouter un nouveau commentaire</h5>
+
+
+<div class="col-lg-12 row">
+	<span class="col-lg-2 libelleFormulaire blocCommentaire">Utilisateur</span>
+	<span class="col-lg-10 blocCommentaire">
+		@Html.TextBox("tbxUtilisateur_"+@Model.Id,null,new { @style = "width:100%;font-size:15px;" , @class="TbxUtilisateurCommentaire" }) 
+	</span>
+</div>
+<div class="col-lg-12 row">
+	<span class="col-lg-2 libelleFormulaire blocCommentaire">Commentaire</span>
+	<span class="col-lg-10 blocCommentaire">
+		@Html.TextArea("tbxMessage_"+@Model.Id,null,new {  @style = "width:100%;font-size:15px;",@rows = "5"  }) 
+	</span>
+ </div>
+<div class="col-lg-4 col-lg-offset-5 row blocFormulaire" align="center" style="margin-top:8px;margin-bottom:0px;">
+	<button id="btn-submit_@Model.Id" onclick="creerCommentaire(@Model.Id,false)" class="btn btn-primary" style="margin-right:30px" ><span class="glyphicon glyphicon-ok-sign"></span>Valider</button>
+</div> 

@@ -1,0 +1,85 @@
+﻿
+<div class="container noMarginVertical">
+	<div>	
+		  <div id="content" class="row CoinsArrondis noMarginVertical">	
+			   	@foreach (Models.Actualite actualite in @Model.ListeActualites)
+		           {
+		           <div class="col-lg-10 divGallery noMarginPaddingVertical col-lg-offset-1 divActu CoinsArrondis" >
+		           		<div id="image_actualite" class="col-lg-3 noMarginPaddingVertical" style="margin:0px;padding:0px">
+				        @if(!String.IsNullOrEmpty(@actualite.CheminDocument))
+					    {
+					     if(@actualite.isImage.Value)
+						{
+					     	<img align="center"  alt="" class="image-actualite img-responsive img-rounded" src="@Url.Content(@actualite.CheminDocument)" title="@actualite.Titre">
+						}
+					      else
+						{
+						<video title="Cliquez dans le cadre pour lancer la vidéo" class="video-actualite" controls > 
+							<source src="@Url.Action("ReadVideo","Actualite",new {idActualite=@actualite.Id})" > 
+						</video>
+						}
+				             }
+					else 
+					     {
+					     <img align="center"  alt="" class="image-actualiteStandard img-responsive img-rounded" src="@Url.Content(Commons.Const.ImageStandardActualite)" title="@actualite.Titre">
+				             }
+						 </div>
+					  <div id="texte_actualite" style="width:75%;margin-left:0px;padding-left:0px;"  class="col-lg-7 noMarginPaddingVertical">
+					     <div  class="row" style="margin-top:0px;" align="left">
+							<h3 style="float:left;color:black;margin-left:9px;margin-top:0px;margin-bottom:10px;">
+								 @if(@actualite.idEquipe!=null && @actualite.isEquipeActive)
+								{
+									@Html.ActionLink("["+@actualite.LibelleEquipe+"] ", "AfficherEquipe", "Equipe", new { idEquipe = @actualite.idEquipe },  new {  @class="hyperLinkTitreActualite" })
+									@actualite.Titre
+								}
+								else if(@actualite.idEquipe!=null && !@actualite.isEquipeActive)
+								{
+									@actualite.TitreIHM
+								}
+								else 
+								{
+									@actualite.Titre
+								}
+							</h3>
+						    <h5 align="right" class="dateActu">@actualite.strDateCreation</h5> 
+						</div>
+						 <p align="left" style="margin-left:0px;padding-left:0px;" class="TexteTeasing">@Html.Raw(@actualite.Resume_HTML)</p>
+
+						 <div class="noMarginPaddingVertical" align="right">
+								@if(!String.IsNullOrEmpty(@actualite.Texte_HTML))
+						     		{
+							         <span title="Afficher tout l'article" style="margin-right:15px;">
+										<button type="button" class="btn btn-default"  onclick="location.href='@Url.Action("AfficherActualite", "Actualite", new { idActualite =@actualite.Id })';return false;">Afficher</button>	
+									 </span>
+						                }
+								<span title="Commentaires" style="margin-right:0px;padding-right:0px;">
+									<input id="linkShowCommentaires_@actualite.Id" onclick="afficherCommentaires(@actualite.Id)"  class="linkButton"   value="@actualite.ListeCommentaires.Count commentaire(s)" alt="Commentaire(s)" title="Commentaire(s)"  />
+									<input id="linkHideCommentaires_@actualite.Id" onclick="masquerCommentaires(@actualite.Id)" style="display:none;" class="linkButton"   value="Masquer" alt="Commentaire(s)" title="Masquer le(s) commentaire(s)"  />
+								</span>
+					  	 </div>
+						<div id="divPartialListCommentaires_@actualite.Id" class="noMarginPaddingVertical">
+						 	@Html.Partial("~/Views/Commentaire/Commentaires.cshtml",@actualite)
+						</div>
+					  </div>
+				    </div>
+					<div class="col-lg-10 divGallery noMarginPaddingVertical col-lg-offset-1">
+				        <hr />
+				   </div>
+			      }
+		    </div>
+		</div>
+</div>
+
+@if (Model.ListeActualites.Count == 0)
+	{
+	<div align="center">
+		 <h2>Aucun résultat</h2>
+	</div>
+	}
+else
+	{
+	<div id="page_navigation"> </div>
+	}
+<script> 
+	initPagination();
+</script>

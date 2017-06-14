@@ -1,0 +1,23 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Error</title>
+</head>
+<body id="body">
+    <div class="divTitrePage">
+        <img src="@Url.Content(Commons.Const.CheminMiniBandeau_violet)" class="minibandeau_violet" />
+        <h1>Erreur</h1>
+    </div>
+    <h2 class="error">Une erreur s’est produite lors du traitement de la requête.</h2>
+    @{
+        if (!String.IsNullOrEmpty(ViewBag.typeErreur))
+        {
+            <h5>@ViewBag.typeErreur</h5>
+        }
+
+
+    } 
+</body>
+</html>

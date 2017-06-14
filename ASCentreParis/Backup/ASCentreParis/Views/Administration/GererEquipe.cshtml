@@ -1,0 +1,148 @@
+@model Models.ObjGestionEquipes
+
+
+@{
+	var classDivUpload="";
+	var classDivChemin="";
+	var nomFichier="";
+}
+<div class="noMarginPaddingVertical" id="form-container">
+	<div class="modal-header noMarginPaddingVertical">
+	    <button type="button" class="close" onclick="fermerModalAdministration();" aria-hidden="true">&times;   </button>
+	    <h3 class="modal-title noMarginPaddingVertical" style="color:white;" id="imageModalLabel">@Model.TitrePage</h3>
+	</div>
+
+	<div class="container modal-body noMarginPaddingVertical">
+
+		<div class="noMarginPaddingVertical">
+	     @using(Html.BeginForm("GererEquipePost", "Administration",  FormMethod.Post, new { id = "MyForm",enctype = "multipart/form-data" }))
+                    {
+			<h4>Informations principales</h4>
+                     <div   class="col-lg-6 col-lg-offset-2" >
+		                 <p class="ValidationKO" id="BlocMessageKO" >@Model.messageKO</p>
+                            @Html.ValidationSummary("")
+                     </div>
+	                  <div class="ValidationOK col-lg-4 col-lg-offset-3" >
+		                  <p>@Model.messageOK</p>
+                     </div>
+                     @Html.TextBoxFor(model => model.Equipe.Id ,new { @id = "tbxId", @style = "display:none;"  })
+
+					<div class="col-lg-10  row blocFormulaire">
+	                 	<span class="col-lg-2 col-lg-offset-1 libelleFormulaire">Libellé (*)</span><span class="col-lg-6">@Html.TextBoxFor(model => model.Equipe.Libelle ,new { @id = "tbxLibelle", @style = "width:100%;"  }) </span>
+	                 </div>
+		              <div class="col-lg-10 row blocFormulaire">
+	                 	<span class="col-lg-2 col-lg-offset-1 libelleFormulaire">Commentaire</span><span class="col-lg-6">@Html.TextAreaFor(model => model.Equipe.Commentaire ,new { @id = "tbxCommentaire", @style = "width:100%;", @rows = "5"  })</span>
+	                 </div>
+					 <div class="col-lg-10 row blocFormulaire">
+	                 	<span class="col-lg-2 col-lg-offset-1 libelleFormulaire">Entrainements</span><span class="col-lg-6">@Html.TextAreaFor(model => model.Equipe.InformationsEntrainements ,new { @id = "tbxInformationEntrainements", @style = "width:100%;", @rows = "4"  })</span>
+	                 </div>	
+					<div class="col-lg-10 row blocFormulaire">
+	                 	<span class="col-lg-2 col-lg-offset-1 libelleFormulaire">Responsable(s)</span><span class="col-lg-6">@Html.TextAreaFor(model => model.Equipe.InformationsResponsable ,new { @id = "tbxInformationResponsable", @style = "width:100%;", @rows = "3"  })</span>
+	                 </div>	
+					<div class="col-lg-10 row blocFormulaire">
+	                 	<span class="col-lg-2 col-lg-offset-1 libelleFormulaire">Division</span><span class="col-lg-6">@Html.TextAreaFor(model => model.Equipe.InformationsDivision ,new { @id = "tbxInformationDivision", @style = "width:100%;", @rows = "3"  })</span>
+	                 </div>	
+					 <div class="col-lg-10 row blocFormulaire">
+	                 	<span class="col-lg-2 col-lg-offset-1 libelleFormulaire">Lien classement</span><span class="col-lg-6">@Html.TextBoxFor(model => model.Equipe.LienClassement ,new { @id = "tbxLienClassement", @style = "width:100%;"  }) </span>
+	                 </div>
+					 <div class="col-lg-10 row blocFormulaire">
+	                 	<span class="col-lg-2 col-lg-offset-1 libelleFormulaire">Ordre (*)</span><span class="col-lg-6">@Html.TextBoxFor(model => model.Equipe.Ordre ,new { @id = "tbxLienClassement", @style = "width:15%;"  }) </span>
+	                 </div>
+			        <div  id="formulaireDocument" >
+				    	<div class="col-lg-10 row blocFormulaire">
+			            	<span class="col-lg-2 col-lg-offset-1 libelleFormulaire">Photo</span>
+							<span class="col-lg-6"> 
+						        @if(!String.IsNullOrEmpty(@Model.Equipe.CheminPhoto))
+								{
+						            classDivChemin="";
+									classDivUpload="display:none";
+									nomFichier=@Model.Equipe.CheminPhoto.Replace(Commons.Const.UploadEquipePath+"/","");
+								}
+								else
+								{
+						            classDivChemin="display:none";
+									classDivUpload="";
+									nomFichier="N/A";
+								}
+
+								<div class="row"  style="@classDivChemin" id="suppression_document_Photo">			      
+									@Html.Label("NomFichierPhoto", @nomFichier, new {@id="LblNomFichierPhoto", @class="lblNomFichier",  @style="font-size:15px"})
+							        	<a class="actionButtons" align="right"  href="#" style="margin-left:13px;"	
+										onclick="javascript:supprimerFichier('Administration','Equipe',@Model.Equipe.Id,'Photo');">
+                            							<img src="../resources/img/cross.png" title="Supprimer le fichier"/>
+                            						</a>	
+								</div>
+								<div  class="inputDoc" style="@classDivUpload" id="upload_document_Photo">
+									<input type="file" id="FileUploadPhoto" />
+						        </div>
+							</span>
+			             </div>
+				    	<div class="col-lg-10 row blocFormulaire">
+			            	<span class="col-lg-2 col-lg-offset-1 libelleFormulaire">Calendrier</span>
+							<span class="col-lg-6"> 
+								@if(!String.IsNullOrEmpty(@Model.Equipe.CheminCalendrier))
+								{
+						            classDivChemin="";
+									classDivUpload="display:none";
+									nomFichier=@Model.Equipe.CheminCalendrier.Replace(Commons.Const.UploadEquipePath+"/","");
+								}
+								else
+								{
+						            classDivChemin="display:none";
+									classDivUpload="";
+									nomFichier="N/A";
+								}
+								<div class="row"  style="@classDivChemin" id="suppression_document_Calendrier">			      
+									@Html.Label("NomFichier", @nomFichier, new {@id="LblNomFichierCalendrier", @class="lblNomFichier",  @style="font-size:15px"})
+							        <a class="actionButtons" align="right"  href="#" style="margin-left:13px;"	
+										onclick="javascript:supprimerFichier('Administration','Equipe',@Model.Equipe.Id,'Calendrier');">
+                            			<img src="../resources/img/cross.png" title="Supprimer le fichier"/>
+                            		</a>	
+								</div>
+								<div  class="inputDoc" style="@classDivUpload"  id="upload_document_Calendrier">
+									<input type="file" id="FileUploadCalendrier" />
+						        </div>
+							</span>
+			             </div> 
+						<div class="col-lg-10 row blocFormulaire">
+			            	<span class="col-lg-2 col-lg-offset-1 libelleFormulaire">Fiche Entrainement</span>
+							<span class="col-lg-6"> 
+								@if(!String.IsNullOrEmpty(@Model.Equipe.CheminFicheEntrainement))
+								{
+						            classDivChemin="";
+									classDivUpload="display:none";
+									nomFichier=@Model.Equipe.CheminFicheEntrainement.Replace(Commons.Const.UploadEquipePath+"/","");
+								}
+								else
+								{
+						            classDivChemin="display:none";
+									classDivUpload="";
+									nomFichier="N/A";
+								}
+								<div class="row"  style="@classDivChemin" id="suppression_document_FicheEntrainement">			      
+									@Html.Label("NomFichier", @nomFichier, new {@id="LblNomFichierFicheEntrainement", @class="lblNomFichier",  @style="font-size:15px"})
+							        <a class="actionButtons" align="right"  href="#" style="margin-left:13px;"	
+										onclick="javascript:supprimerFichier('Administration','Equipe',@Model.Equipe.Id,'FicheEntrainement');">
+                            			<img src="../resources/img/cross.png" title="Supprimer le fichier"/>
+                            		</a>	
+								</div>
+								<div  class="inputDoc" style="@classDivUpload" id="upload_document_FicheEntrainement">
+									<input type="file" id="FileUploadFicheEntrainement" />
+						        </div>
+							</span>
+			             </div> 
+					</div>
+				   	<div class="col-lg-3 col-lg-offset-3 row blocFormulaire" align="center" style="margin-top:35px;margin-bottom:20px;">
+
+				         <button id="btn-submit" class="btn btn-primary" style="margin-right:40px" ><span class="glyphicon glyphicon-ok-sign"></span>@Model.LibelleBoutonSauvegarde</button>
+			             <button type="button" class="btn btn-default" onclick="fermerModalAdministration();">Retour</button>
+	   				 </div> 
+	               }
+	    </div>	
+	</div>
+</div>
+
+<script src="@Url.Content("~/Scripts/AdminEquipes.js")"></script>
+ <script type="text/javascript">
+		initformWithFiles('Administration','Equipe',[],['Photo', 'Calendrier', 'FicheEntrainement']);	
+</script>

@@ -1,0 +1,67 @@
+﻿@model Models.Equipe
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h1>Equipe @Model.Libelle</h1>
+
+	<div class="DivInfoEquipe">
+		<span style="margin-top:40px;" class="CommentaireInfoEquipe">@Html.Raw(@Model.Commentaire_HTML)</span>
+	</div>
+	@if(!String.IsNullOrEmpty(Model.InformationsDivision))
+		 {
+		<div class="row DivInfoEquipe"><span class="TitreInfoEquipe colorclub">Championnat :</span> 
+	           <span class="TexteInfoEquipe">@Html.Raw(@Model.InformationsDivision_HTML)
+			   @if(!String.IsNullOrEmpty(Model.LienClassement))
+			     {
+	              <a class="colorclub" href="@Model.LienClassement">(Lien FFF)</a>
+			     }
+	         </span>
+	     </div>
+         }
+    @if(!String.IsNullOrEmpty(Model.InformationsEntrainements))
+		     {
+	          <div class="row DivInfoEquipe"><span class="TitreInfoEquipe colorclub">Entrainements :</span> 
+				<span class="TexteInfoEquipe">@Html.Raw(@Model.InformationsEntrainements_HTML)</span></div>
+		     }
+	
+    @if(!String.IsNullOrEmpty(Model.InformationsResponsable))
+		     {
+             <div class="row DivInfoEquipe"><span class="TitreInfoEquipe colorclub">Responsable(s) :</span>
+			<span class="TexteInfoEquipe">@Html.Raw(@Model.InformationsResponsable_HTML)</span></div>
+		     }
+    
+	@if(!String.IsNullOrEmpty(Model.CheminCalendrier))
+		{
+			using (Html.BeginForm("TelechargerDocument", "Equipe", FormMethod.Post))
+				{
+				<div class="row DivInfoEquipe">
+				    <input formaction="/Equipe/TelechargerDocument?idEquipe=@Model.Id&TypeDocument=Calendrier"   type="submit" class="linkButton"   value="Télécharger le calendrier" alt="Télécharger le fichier" title="Télécharger le fichier"  />
+				 </div>
+	            		}
+		}
+
+
+
+	@if(!String.IsNullOrEmpty(Model.CheminFicheEntrainement))
+		{
+			using (Html.BeginForm("TelechargerDocument", "Equipe", FormMethod.Post))
+				{
+				<div class="row DivInfoEquipe">
+				    <input formaction="/Equipe/TelechargerDocument?idEquipe=@Model.Id&TypeDocument=FicheEntrainement"   type="submit" class="linkButton"   value="Télécharger la fiche d'entrainement" alt="Télécharger le fichier" title="Télécharger le fichier"  />
+				 </div>
+	            		}
+		}
+
+	@if(!String.IsNullOrEmpty(Model.CheminPhoto))
+		{
+		 <div align="center" class="divGallery" style="margin-top:25px;">
+	      <img  src="@Url.Content(@Model.CheminPhoto)" title="Photo de l'équipe @Model.Libelle" alt="@Model.Libelle" class="imageEquipe img-responsive img-rounded img-thumbnail">
+	    </div>
+		}
+
+
+	@Html.Partial("~/Views/Shared/_PartialBackToTop.cshtml")

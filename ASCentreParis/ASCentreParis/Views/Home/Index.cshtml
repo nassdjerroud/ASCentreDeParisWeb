@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<div class="row" align="center">
+    @Html.Label("TitreBienvenue","Bienvenue sur le site officiel de l'A.S Centre de Paris",new {@class= "BienvenueSite" })
+</div>
+<div class="row">
+    <img src="@Url.Content(Commons.Const.CheminMiniBandeau_violet)" class="minibandeau_violet" />
+    <h1>Actualités du club</h1>
+</div>
+ <div class="container-fluid noMarginPaddingHorizontal" style="margin-top:15px;margin-bottom:20px;">
+    <div id="div_FilActualite" class="col-xs-12 noMarginPaddingVertical">
+        <div align="right" style="padding-right:22px;">
+            <span class="Gras" style="font-size:16px;">Filtrer :</span>
+            <span title="Veuillez rentrer le texte à rechercher" style="font-size:16px;">@Html.TextBox("query","",new {@class= "TbxQuery" })</span>
+            <button onclick="lancerNouvelleRecherche();" type="submit" alt="Chercher une actualité" title="Chercher une actualité" style="border: 0; background: transparent">
+                <img src="../resources/img/loupe.png" style="width:21px;height:21px" />
+            </button>
+        </div>
+
+        <div id="search-results" style="margin-top:20px;padding-left:0px;padding-right:0px;" class="col-xs-12" >
+        </div>
+    </div>
+</div>
+
+<script src="@Url.Content("~/Scripts/Home.js")"></script>
+<script src="@Url.Content("~/Scripts/Commentaires.js")"></script>
+
+
+
+
+
+
+
+

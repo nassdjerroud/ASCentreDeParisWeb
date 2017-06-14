@@ -1,0 +1,130 @@
+.form-signin
+{
+    /* max-width: 330px; */
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .form-signin-heading, .form-signin .checkbox
+{
+    margin-bottom: 10px;
+}
+.form-signin .form-control
+{
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.form-signin .form-control:focus
+{
+    z-index: 2;
+}
+.form-signin input[type="text"]
+{
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"]
+{
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.account-wall
+{
+    margin-top: 20px;
+    padding: 20px 20px 20px 20px;
+    background-color: #F5F5F5;
+    border-radius:15px;
+    border:1px solid;
+    border-color:#EEEEEE;
+    margin-bottom:20px;
+}
+/*
+@media (max-width: 768px) {
+	.account-wall{
+		width:200px;
+	}	
+}
+*/
+
+.login-title
+{
+    color: #555;
+    font-size: 18px;
+    font-weight: 400;
+    display: block;
+}
+
+.login-connexion{
+	text-align:center;
+	font-size:24px;
+	margin-bottom:10px;
+	color:#9370DB;
+}
+
+.nopaddingleftright{
+	padding-left:0px;
+	padding-right:0px;
+}
+
+.nopaddingleftrightlabel{
+	padding-left:0px;
+	padding-right:0px;
+	color:#9370DB;
+	text-align:left;
+	float:left;
+}
+
+.login-button{
+	padding: 10px 12px;
+	font-size:14px;
+}
+
+/* Ajout de styles supplemantaires */
+
+.padding10{
+	padding:10px;
+}
+
+.marginbottom1{
+	margin-bottom:1px;
+}
+
+.floatcenter{
+	float:center
+}
+
+.submitconnexion{
+	padding: 10px 12px;
+	font-size:14px;
+}
+
+.lienretour{
+	width:300px;
+	margin:0 auto;
+	text-align:center;
+}
+
+@media (min-width: 768px) {
+	.signin-input{	
+	width :150px!important;
+	}
+}
+
+@media (max-width: 768px) {
+	.signin-input{	
+	min-width :100px!important;
+	}
+}
+
+@media (max-width: 768px) {
+	.signin-label{	
+	min-width :110px!important;
+	}
+}
+

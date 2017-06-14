@@ -1,0 +1,152 @@
+﻿<script type="text/javascript">
+    TypeMessage = {
+        Succes: 1,
+        Avertissement: 2,
+        Erreur: 3,
+        Information: 4
+    }
+
+    window.afficherMessage = function (type, message, clear) {
+        if (clear == undefined || clear) {
+            clearMessage();
+        }
+
+        var strType;
+        switch (type) {
+            case TypeMessage.Succes: strType = 'Succes'; break;
+            case TypeMessage.Avertissement: strType = 'Avertissement'; break;
+            case TypeMessage.Erreur: strType = 'Erreur'; break;
+            case TypeMessage.Information: strType = 'Information'; break;
+            default: return;
+        }
+
+        $('#libelleMessage' + strType).html(message);
+        $('#divMessage' + strType).css("display", "table");
+    }
+
+
+    window.afficherMessageWarning = function (type, message) {
+        var strType = 'Avertissement';
+        $('#libelleMessage' + strType).html(message);
+        $('#divMessage' + strType).css("display", "table");
+    }
+
+    function clearMessage() {
+        $('#libelleMessageSucces').text('');
+        $('#divMessageSucces').css("display", "none");
+
+        $('#libelleMessageAvertissement').text('');
+        $('#divMessageAvertissement').css("display", "none");
+
+        $('#libelleMessageErreur').text('');
+        $('#divMessageErreur').css("display", "none");
+
+        $('#libelleMessageInformation').text('');
+        $('#divMessageInformation').css("display", "none");
+    }
+
+    var child = null;
+    var timer = null;
+    function checkChild() {
+        if (child != null) {
+            if (child.closed) {
+                $("#overlay").css('display', 'none');
+                child = null;
+                clearInterval(timer);
+            }
+            else if (document.hasFocus()) {
+                child.focus();
+            }
+        }
+    }
+
+    function openModal(alink, w, h) {
+        $("#overlay").css('display', 'inline');
+
+        // Fixes dual-screen position                         Most browsers      Firefox
+        var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+        var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+
+        var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+        var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+        var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+        var top = ((height / 2) - (h / 2)) + dualScreenTop;
+
+
+        child = window.open(alink, target = '_blank', "width=" + w + ",height=" + h + ",scrollbars=yes, top=" + top + ", left=" + left);
+        child.focus();
+        timer = setInterval(checkChild, 500);
+    }
+
+    function reloadParent() {
+        opener.lancerRecherche();
+    }
+
+    function reloadParentSupprOK() {
+        opener.affichageConfirmationSuppr();
+        opener.lancerRecherche();
+    }
+
+    function formatNumberSpaceSeparator(number) {
+        number += '';
+        x = number.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + ' ' + '$2');
+        }
+
+        return x1 + x2;
+    }
+
+    function selectOnlyOption(ddl) {
+        if (ddl.find('option').length == 2) {
+            ddl.prop('selectedIndex', 1);
+        }
+    }
+</script>
+
+<style>
+
+    .divMessage {
+        display:none;
+        margin-bottom:15px;
+    }
+
+    .tempMessageContent {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .dividerButtons{
+        width:25px;
+        height:auto;
+        display:inline-block;
+    }
+
+    .modalButtonWidth{
+        width : 100px;
+    }
+
+    #overlay {
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 999;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 120%;
+        display: none;
+    }
+
+    .td-align-center {
+        text-align: center;
+    }    
+	.td-align-right {
+        text-align: right;
+    }
+</style>
+
+<div id="overlay"></div>

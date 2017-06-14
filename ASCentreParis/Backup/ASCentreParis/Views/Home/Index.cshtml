@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+   <div  class="container" style="margin-top:15px;margin-bottom:20px;margin-left:-20px;padding-left:0px;">
+	  <h1 class="col-lg-10 col-lg-offset-1" style="font-size:33px;" >Bienvenue sur le site officiel de l'A.S Centre de Paris</h1>
+	</div>
+
+
+
+	<div id="div_FilActualite" >
+	    <h1  class="col-lg-offset-1">Actualités du club</h1>
+		<div align="right">
+			<span class="Gras" style="font-size:14px;">Filtrer :</span>
+		    <span title="Veuillez rentrer le texte à rechercher" style="font-size:14px;">@Html.TextBox("query")</span>
+			<button onclick="refreshListeActualites();" type="submit" alt="Chercher une actualité" title="Chercher une actualité"  style="border: 0; background: transparent">
+			    <img src="../resources/img/loupe.png" style="width:23px;height:23px"  />
+			</button>
+		</div>      
+	
+		<div  id="search-results" style="margin-top:20px;">
+		</div>
+   </div>
+
+<script src="@Url.Content("~/Scripts/Home.js")"></script>
+<script src="@Url.Content("~/Scripts/Commentaires.js")"></script>
+<script> 
+    $(document).ready(function() {
+	    // Lancement de la recherché lorsque la touche entrée est utilisée
+		$('#query').unbind();
+        $('#query').bind('keyup', function (e) {
+            if (e.keyCode == 13) {
+				refreshListeActualites();
+            }
+        });
+    	refreshListeActualites();
+ 
+    });
+</script>
+
+
+
+@Html.Partial("~/Views/Shared/_PartialBackToTop.cshtml")
+
+
+
+

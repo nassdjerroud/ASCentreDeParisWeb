@@ -1,0 +1,29 @@
+﻿	@if(@Model.ListeCommentaires.Count>0)
+			{
+			<div class="Gras col-lg-12" style="font-size:14px;margin-bottom:0px;text-decoration:underline;"  align="left">
+					<p>Commentaires
+					</p>
+			</div>
+			foreach (Models.Commentaire commentaire in @Model.ListeCommentaires)
+		    	{
+				<div class="divCommentaire col-lg-12 CoinsArrondis">
+					<div class="col-lg-12 row">
+						<div class="Gras col-lg-6" style="font-size:15px;"  align="left">
+							@commentaire.Utilisateur
+						</div>
+						<div class="Gras col-lg-6" style="font-size:13px;" align="right">
+							@commentaire.strDateCreation
+						</div>
+					</div>
+					<div class="col-lg-12" style="font-size:15px;margin-top:4px;">
+						@Html.Raw(@commentaire.Message_HTML)
+					</div>
+				</div>
+		 		}
+			}
+			else
+			{
+			<div class="Gras col-lg-12" style="font-size:15px;"  align="center">
+					Aucun commentaire
+				</div>
+			}

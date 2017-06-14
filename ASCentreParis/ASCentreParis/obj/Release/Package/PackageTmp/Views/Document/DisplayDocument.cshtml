@@ -1,0 +1,33 @@
+﻿@model Models.Document
+
+    <div class="myoutercontainer">
+        @if(Model.isImage)
+        {
+            <img id="doc_image" src="@Url.Content(Model.CheminDocument)" title="@Model.Titre" alt="L'image n'a pas pu être chargée" style="max-height:275px;" class="img-responsive img-rounded fancybox img-thumbnail imgBox myinnercontainer">
+        }
+        @if(Model.isVideo)
+        {
+            <video title="Cliquez dans le cadre pour lancer la vidéo" class="video-document videoToLoad myinnercontainer" controls style="max-height:275px;">
+                <source src="@Url.Action("ReadVideo","Document",new {idDocument=@Model.Id})">
+            </video>
+        }
+        @if(!Model.isVideo && !Model.isImage)
+        {
+            <div align="center">
+                @using (Html.BeginForm("TelechargerDocument", "Document", FormMethod.Post, new { @data_id = Model.Id, @class = "formDownload" }))
+                {
+                    <input type="image" style="cursor:pointer; vertical-align: middle;" src="@Url.Content(Model.CheminImageFormatUpload)" alt="Télécharger le fichier" title="Télécharger le fichier" class="ImageTelechargement imgBox myinnercontainer" />
+                }
+            </div>
+        }
+    </div>
+    <div style="width:100%;">
+        <h4>@Model.Titre</h4>
+        @if(!Model.isImage)
+        {
+            <h5 align="center" style="font-size:14px">@Model.NomFichierUpload</h5>
+        }
+    </div>
+    <div align="left" style="font-size:15px; width:100%; overflow-x:auto;">
+        @ASCentreParis.Helpers.HtmlHelper.HTMLRaw("Texte", @Model.Texte)
+    </div>

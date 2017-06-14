@@ -1,0 +1,100 @@
+.panel .panel-default {
+	border: 1px solid #e4e4e5;
+	margin-bottom: 10px;
+}
+
+.panel .panel-default .panel-heading {
+	background: #e4e4e5;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left:10px;
+}
+
+.panel .panel-default> .panel-body {
+	margin:5px;
+}
+
+.panel .panel-default > img {
+	width:100%;
+}
+
+.panel-title {
+	margin-top: 0;
+	margin-bottom: 0;
+	/* font-size: 1.083em; */
+	
+	background-color: transparent;
+	/* color:#616161; */
+}
+
+h3.panel-title > a{
+	color: red;
+    text-decoration: none;
+	color: inherit;
+}
+
+h3.panel-title > a:hover{
+    text-decoration: underline;
+}
+
+h3.panel-title > a:focus{
+    text-decoration: underline;
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+}
+
+.panel-group .panel
+{
+	border-radius: 4px;
+}
+
+.panel
+{
+	border-radius: 4px;
+}
+
+/* composant accordéon */
+#accordion>.panel-default > .panel-heading{
+background: #FBFBFB;
+background: -moz-linear-gradient(left, #1D61AA 0%, #C1D7F5 100%);
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,#1D61AA), color-stop(100%,#C1D7F5));
+background: -webkit-linear-gradient(left, #1D61AA 0%, #C1D7F5 100%);
+background: -o-linear-gradient(left, #1D61AA 0%, #C1D7F5 100%);
+background: -ms-linear-gradient(left, #1D61AA 0%, #C1D7F5 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1D61AA', endColorstr='#C1D7F5',GradientType=1 );
+-ms-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1D61AA', endColorstr='#C1D7F5',GradientType=1 );
+background: linear-gradient(left, #1D61AA 0%, #C1D7F5 100%);
+
+}
+
+#accordion > .panel-default > .panel-heading.active-panel {
+background: #9370DB;
+background: -moz-linear-gradient(left, #1D61AA 0%, #9370DB 100%);
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,#1D61AA), color-stop(100%,#9370DB));
+background: -webkit-linear-gradient(left, #1D61AA 0%, #9370DB 100%);
+background: -o-linear-gradient(left, #1D61AA 0%, #9370DB 100%);
+background: -ms-linear-gradient(left, #1D61AA 0%, #9370DB 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1D61AA', endColorstr='#9370DB',GradientType=1 );
+-ms-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1D61AA', endColorstr='#9370DB',GradientType=1 );
+background: linear-gradient(left, #1D61AA 0%, #9370DB 100%);
+}
+
+#accordion .panel-title {
+	 color: #133B77;
+	 font-weight:bold;
+	 font-size:12px;
+	 text-decoration:none;
+}
+
+#accordion .active-panel .panel-title {
+	 color: white;
+	 font-weight:bold;
+	 font-size:12px;
+	 text-decoration:none;
+}
+
+#accordion .panel-heading{
+	cursor:pointer;
+}

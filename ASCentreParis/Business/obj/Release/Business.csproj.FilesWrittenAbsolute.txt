@@ -1,0 +1,14 @@
+/Users/francoislaruaz/Projects/ASCentreParis/Business/obj/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/francoislaruaz/Projects/ASCentreParis/Business/bin/Release/Business.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Business/obj/Release/Business.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Business/bin/Release/Commons.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Business/bin/Release/Models.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Business/bin/Release/DataAccess.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Business/bin/Release/log4net.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Business/bin/Release/System.Web.Mvc.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Business/bin/Release/System.Web.Razor.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Business/bin/Release/System.Web.WebPages.Razor.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Business/bin/Release/System.Web.WebPages.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Business/bin/Release/Microsoft.Web.Infrastructure.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Business/bin/Release/System.Web.WebPages.Deployment.dll
+/Users/francoislaruaz/Projects/ASCentreParis/Business/bin/Release/MySql.Data.dll

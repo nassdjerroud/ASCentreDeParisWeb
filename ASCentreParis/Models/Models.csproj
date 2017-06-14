@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{560679AB-88BA-4C8E-94D5-05FBC41460EE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Models</RootNamespace>
+    <AssemblyName>Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcSiteMapProvider">
+      <HintPath>..\packages\MvcSiteMapProvider.MVC5.Core.4.6.22\lib\net45\MvcSiteMapProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\packages\WebActivatorEx.2.0.1\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcSiteMapProvider.WebActivator">
+      <HintPath>..\packages\MvcSiteMapProvider.MVC5.4.6.22\lib\net45\MvcSiteMapProvider.WebActivator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ObjetBDD\Log4Net.cs" />
+    <Compile Include="ObjetBDD\Stat.cs" />
+    <Compile Include="ObjetBDD\Equipe.cs" />
+    <Compile Include="ObjetBDD\CategorieDocument.cs" />
+    <Compile Include="ObjetVues\ObjGestionDocuments.cs" />
+    <Compile Include="ObjetBDD\Actualite.cs" />
+    <Compile Include="ObjetBDD\Document.cs" />
+    <Compile Include="ObjetVues\objDropDownListItem.cs" />
+    <Compile Include="ObjetVues\DataTableDataDocument.cs" />
+    <Compile Include="ObjetVues\DataTableDataStat.cs" />
+    <Compile Include="ObjetVues\Filtre.cs" />
+    <Compile Include="ObjetVues\DataTableDataLog.cs" />
+    <Compile Include="ObjetVues\DataTableDataActualite.cs" />
+    <Compile Include="ObjetVues\ObjGestionActualite.cs" />
+    <Compile Include="ObjetVues\ObjDocument.cs" />
+    <Compile Include="ObjetVues\ObjGestionEquipes.cs" />
+    <Compile Include="ObjetBDD\Utilisateur.cs" />
+    <Compile Include="ObjetVues\ObjLogin.cs" />
+    <Compile Include="Interface\ICustomPrincipal.cs" />
+    <Compile Include="Filter\AuthorizeUserAttribute.cs" />
+    <Compile Include="Filter\CustomPrincipal.cs" />
+    <Compile Include="ObjetVues\objFormulaire.cs" />
+    <Compile Include="ObjetVues\DataTableBase.cs" />
+    <Compile Include="ObjetVues\DataTableDataEquipe.cs" />
+    <Compile Include="ObjetVues\ObjGestionLogs.cs" />
+    <Compile Include="ObjetBDD\Commentaire.cs" />
+    <Compile Include="ObjetVues\ObjGestionCommentaire.cs" />
+    <Compile Include="ObjetVues\DataTableDataCommentaire.cs" />
+    <Compile Include="ObjetVues\ObjAcceuil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Logger\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="log4net.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,107 @@
+﻿using MvcSiteMapProvider.Web.Html;
+@using System.Web.Optimization;
+@using System.Web.Optimization.Extensions;
+
+<!DOCTYPE html>
+<html class="no-js" lang="fr" dir="ltr">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AS Centre De Paris</title>
+		
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.9.1.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+		
+	@Html.MvcSiteMap().CanonicalTag()
+    @Html.MvcSiteMap().MetaRobotsTag()
+	
+     
+    @Styles.Render("~/resources/bootstrapv311/css/bootstrap")
+    <!-- Barre de fonction - gestion des drapeaux - internationalisation -->
+    @Styles.Render("~/resources/extPlugins/css/icons")
+    <!-- bibliothèque de fonts (elusive-fonts)  -->
+    @Styles.Render("~/resources/elusive-iconfont/css/font")
+    <!--  Layout.cshtml Styles -->
+    @Styles.Render("~/Style/charte")
+    @Styles.Render("~/resources/jquery/css")
+    @Styles.Render("~/Style/DataTables")
+
+
+		
+    @*<link rel="stylesheet" href="~/resources/bdf/css/bdf.datatable.css">*@
+
+    <!--[if gte IE 8]><link rel="stylesheet" href="~/resources/bdf/css/bdf.charte_gte_ie8.css" media="screen"><![endif]-->
+
+    <!--  gestion du support HTML / propriétés par les différents navigateurs -->
+    <script src="@Scripts.Url("~/Scripts/modernizr")"></script>
+
+		
+    <!--  jQuery -->
+	<script src="@Url.Content("~/Scripts/jquery.dataTables.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.js")"></script>
+	<link rel="stylesheet" href="@Url.Content("~/Scripts/css/jquery-ui.css")" />
+
+    <!--  jQuery -->
+	 <!--  gestion des placeholders dans IE -->
+    @Scripts.Render("~/Scripts/placeholders")
+    <script src="@Url.Content("~/resources/html5shiv/js/html5shiv.js")"></script>
+    <script src="@Url.Content("~/resources/respond/js/respond.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/Commons.js")"></script>
+    <link rel="shortcut icon" href="favicon_foot.ico" type="image/x-icon">
+    <link rel="icon" href="@Url.Content("~/ressources/Images/favicon_foot.ico")" type="image/x-icon">
+    <link href="@Url.Content("~/ressources/css/Ajout.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/resources/datatables/datatables.js")"></script>
+    <script src="@Url.Content("~/resources/datatables/jquery.dataTables.rowReordering.js")"></script>
+    <script src="@Url.Content("~/resources/datatables/jquery.dataTables.rowGrouping.js")"></script>
+    <script src="@Url.Content("~/resources/datatables/jquery_ui11.js")"></script>
+    <script src="@Url.Content("~/resources/datatables/dataTables.rowReorder.js")"></script>
+   <script src="@Url.Content("~/resources/jquery/js/modal.js")"></script>
+
+
+    <script type="text/javascript">
+        //Désactivation des listes déroulantes qui n'ont qu'une option sélectionnable
+        $(document).ready(function () {
+            $("select").each(function () {
+                if ($(this).find("option").length < 2) {
+                    $(this).prop('disabled', true);
+                }
+            });
+        });
+    </script>
+
+     <style>
+     /* Start by setting display:none to make this hidden.
+    Then we position it in relation to the viewport window
+    with position:fixed. Width, height, top and left speak
+    for themselves. Background we set to 80% white with
+    our animation centered, and no-repeating */
+
+
+
+
+
+
+
+
+     </style>
+		
+</head>
+<body>
+    <div class="container">
+        @Html.Partial("Header")
+        @Html.Partial("Transverse")
+
+        @RenderBody()
+		
+		<hr />
+    <footer>
+        <p>&copy; 2017 - AS Centre De Paris</p>
+    </footer>
+    </div>
+
+
+    <div class="modal"><!-- Place at bottom of page --></div>
+</body>
+</html>

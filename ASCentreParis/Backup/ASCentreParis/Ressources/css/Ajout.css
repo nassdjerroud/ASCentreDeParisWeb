@@ -1,0 +1,729 @@
+﻿.modal {
+            display:    none;
+            position:   fixed;
+            z-index:    1000;
+            top:        0;
+            left:       0;
+            height:     100%;
+            width:      100%;
+            background: rgba( 255, 255, 255, .8 )
+                        50% 50%
+                        no-repeat;
+        }
+
+        /* When the body has the loading class, we turn
+           the scrollbar off with overflow:hidden */
+body.loading {
+            overflow: hidden;
+        }
+
+/* Anytime the body has the loading class, our
+           modal element will be visible */
+body.loading .modal {
+            display: block;
+        }
+
+
+
+
+.field-validation-error {
+            color: Red;
+        }
+
+h2.helpButton {
+            margin: 0px;
+        }
+
+a.helpButton {
+            float: right;
+            position: relative;
+            left: 20px;
+            top: 5px;
+        }
+
+a.helpButton div.tooltip {
+                font-size: 9px;
+                min-width: 100px;
+            }
+
+div#main {
+            padding-top: 0px;
+        }
+
+
+.ui-progressbar {
+        position: relative;
+    }
+
+.ui-progressbar-value {
+        box-sizing: content-box;
+    }
+
+.progress-label {
+        float: left;
+        margin-top: 5px;
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+    }
+
+.myProgressBarStyle {
+        border-top-left-radius: 4px /*{cornerRadius}*/;
+        border-top-right-radius: 4px /*{cornerRadius}*/;
+        border-bottom-left-radius: 4px /*{cornerRadius}*/;
+        border-bottom-right-radius: 4px /*{cornerRadius}*/;
+        border: 1px solid #aaaaaa/*{borderColorContent}*/;
+	    background: #ffffff/*{bgColorContent}*/ url(images/ui-bg_flat_75_ffffff_40x100.png)/*{bgImgUrlContent}*/ 50%/*{bgContentXPos}*/ 50%/*{bgContentYPos}*/ repeat-x/*{bgContentRepeat}*/;
+	    color: #222222/*{fcContent}*/;
+        text-align: center;
+        line-height: 2em;
+        background-color: #56e918;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s 2s, opacity 2s linear;
+    }
+
+    .ui-multiselect { padding:2px 0 2px 4px; text-align:left }
+    .ui-multiselect span.ui-icon { float:right }
+    .ui-multiselect-single .ui-multiselect-checkboxes input { position:absolute !important; top: auto !important; left:-9999px; }
+    .ui-multiselect-single .ui-multiselect-checkboxes label { padding:5px !important }
+
+    .ui-multiselect-header { margin-bottom:3px; padding:3px 0 3px 4px }
+    .ui-multiselect-header ul { font-size:0.9em }
+    .ui-multiselect-header ul li { float:left; padding:0 10px 0 0 }
+    .ui-multiselect-header a { text-decoration:none }
+    .ui-multiselect-header a:hover { text-decoration:underline }
+    .ui-multiselect-header span.ui-icon { float:left }
+    .ui-multiselect-header li.ui-multiselect-close { float:right; text-align:right; padding-right:0 }
+
+    .ui-multiselect-menu { display:none; padding:3px; position:absolute; z-index:10000; text-align: left }
+    .ui-multiselect-checkboxes { position:relative /* fixes bug in IE6/7 */; overflow-y:scroll }
+    .ui-multiselect-checkboxes label { cursor:default; display:block; border:1px solid transparent; padding:3px 1px }
+    .ui-multiselect-checkboxes label input { position:relative; top:1px }
+    .ui-multiselect-checkboxes li { clear:both; font-size:0.9em; padding-right:3px }
+    .ui-multiselect-checkboxes li.ui-multiselect-optgroup-label { text-align:center; font-weight:bold; border-bottom:1px solid }
+    .ui-multiselect-checkboxes li.ui-multiselect-optgroup-label a { display:block; padding:3px; margin:1px 0; text-decoration:none }
+
+    /* remove label borders in IE6 because IE6 does not support transparency */
+    * html .ui-multiselect-checkboxes label { border:none }
+
+    .myProgressBarStyle-active {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 1s linear;
+        background-color: #b9b8b8;
+    }
+
+    /* When the body has the loading class, we turn
+    the scrollbar off with overflow:hidden */
+     .loading {
+         overflow: hidden;
+     }
+
+    .Noloading {
+         overflow: visible;
+     }
+
+         /* Anytime the body has the loading class, our
+    modal element will be visible */
+         .loading .modal {
+             display: block;
+         }
+         .Noloading .modal {
+             display: block;
+         }
+
+
+    #bandeau {
+        margin-left: 149px;
+        width: 797px;
+        background-color: #6bbdb7;
+        border-left: 3px solid #409e9d;
+    }
+
+    #gauche {
+
+        float: left;
+    }
+
+    #milieu {
+
+        float: left;
+    }
+
+    #droite {
+
+        float: left;
+    }
+
+.libelleFormulaire {
+
+        font-size:14px;
+        font-weight:bold;
+        padding-right:20px;
+    }
+
+.blocCommentaire
+    {
+        margin-top:5px;
+        margin-bottom:5px;
+    }
+
+.blocFormulaire
+    {
+        margin-top:10px;
+        margin-bottom:10px;
+    }
+
+.ValidationOK {
+
+        font-size:16px;
+        font-weight:bold;
+        color:green;
+    }
+
+.ValidationKO {
+
+        font-size:16px;
+        font-weight:bold;
+        color:red;
+    }
+
+.couleurclub
+    {
+        
+        background-color:#9370DB;
+        font-weight:bold;
+        color:white;
+    }
+
+.colorclub
+    {  
+        color:#9370DB;
+    }
+
+.Stat {
+        margin-right:20px;
+        font-weight:bold;
+        padding-right:20px;
+    }
+
+.jumbotron {
+  background-color: transparent;
+}
+
+ .imageCaroussel {
+     width:100%;
+     max-width:800px;
+   }
+
+ .carousel-inner > .item > img {
+    margin: 0 auto;
+}
+
+
+ .carousel-inner {
+   background: #FFFFFF;
+}
+
+ .carousel {
+
+}
+
+.stylecarousel{
+   height:400px;
+}
+
+.carousel-inner {
+     background-color: white;
+
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .slider-size {
+        height: auto;
+    }
+    .slider-size > img {
+         width: 80%;
+    }
+}
+
+/* tablets */
+@media (max-width: 991px) and (min-width: 768px) {
+    .slider-size {
+        height: auto;
+    }
+    .slider-size > img {
+        width: 80%;
+    }
+}
+
+/* laptops */
+@media (max-width: 1023px) and (min-width: 992px) {
+    .slider-size {
+         height: 200px;
+    }
+    .slider-size > img {
+        width: 80%;
+    }
+}
+
+/* desktops */
+@media (min-width: 1024px) {
+    .slider-size {
+        height: 300px;
+    }
+    .slider-size > img {
+        width: 60%;
+    }
+}
+
+.carousel .item {
+  text-align: center;
+  background-color: white;
+}
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none
+}
+
+.divGallery{
+    padding:28px;
+}
+
+.divImageClub{
+    padding:12px;
+}
+
+
+.imgBox 
+   {
+        opacity: 1.0;
+        filter: alpha(opacity=100);
+    }
+
+.imgBox:hover
+   {
+        -moz-box-shadow: 0 0 10px #ccc;
+        -webkit-box-shadow: 0 0 10px #ccc;
+         box-shadow: 0 0 10px #ccc;
+         opacity: 0.4;
+         filter: alpha(opacity=40);
+   }
+
+.ImageTelechargement
+      {
+      height:70px;
+       width:70px;
+    }
+
+.ImageTelechargementEquipe
+      {
+      height:40px;
+       width:40px;
+    }
+
+.ImageLogin
+      {
+      height:40px;
+       width:40px;
+       cursor:pointer;
+    }
+
+.ImageLogin_ok
+      {
+      height:32px;
+       width:32px;
+       cursor:pointer;
+    }
+
+
+ .DivInfoEquipe
+    {
+    margin-left : 50px;
+    margin-right : 17px;
+    margin-top: 20px;
+    }
+
+  .DivInfoContact
+    {
+    margin-left : 50px;
+    }
+
+.TitreInfoEquipe
+    {
+     font-weight:bold;
+     font-size:17px;
+    }
+
+.TexteInfoEquipe
+    {
+     font-size:17px;
+    }
+
+.CommentaireInfoEquipe
+    {
+     font-size:17px;
+    }
+
+.loupe {
+    z-index:8020;
+}
+
+
+#fancybox-outer {background:transparent !important;}
+#fancybox-bg-e {background-image: none !important;}
+#fancybox-bg-se {background-image: none !important;}
+#fancybox-bg-s {background-image: none !important;}
+#fancybox-bg-w {background-image: none !important;}
+#fancybox-bg-nw {background-image: none !important;}
+#fancybox-content {border-width:0px !important; height:600px !important; width:auto !important; min-width:500px; margin-top:-20px !important;}
+#fancybox-img {width: auto !important; height: auto !important; max-height:600px;}
+
+.fancybox-title {
+    position: absolute;
+    top: -36px;
+    left: 0;
+    visibility: hidden;
+    font: normal 13px/20px #9370DB,Helvetica,Arial,sans-serif;
+    position: relative;
+    text-shadow: none;
+    z-index: 8050;
+    }
+
+.fancybox-title-float-wrap {
+    position: absolute;
+    z-index: 8030;
+    }
+
+ h2 {
+    color:#9370DB;
+}
+
+ h3 {
+    color:#9370DB;
+}
+
+ h4 {
+    color:#9370DB;
+}
+
+.styleTitre
+{
+    font-family: "Times New Roman", Times, serif;
+}
+
+.noMarginVertical{
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+.noMarginPaddingVertical{
+	margin-top:0px;
+	margin-bottom:0px;
+	padding-top:0px;
+	padding-bottom:0px;
+}
+
+
+.noMarginHorizontal{
+	margin-left:0px;
+	margin-right:0px;
+}
+
+
+
+.linkButton { 
+     background: none;
+     border: none;
+     color: #9370DB;
+     text-decoration: underline;
+     cursor: pointer; 
+     font-size:17px;
+}
+
+.imageEquipe
+{ 
+    width:100%;
+    max-width:500px;
+}
+
+.imageClubPetite
+{ 
+    width:100%;
+    max-width:250px;
+}
+
+.imageClub
+{ 
+    width:100%;
+    max-width:430px;
+}
+
+
+.video-Modal-actualite {
+    width: 100%;
+    max-width: 360px;
+}
+
+
+
+.image-Modal-actualite
+{ 
+    width:100%;
+    max-width:400px;
+}
+
+.image-actualite
+{ 
+    width:100%;
+    max-width:170px;
+}
+
+.video-actualite {
+    width : 90% ;
+    max-height: 170px;
+}
+
+.video-document {
+    width : 94% ;
+    height : 220px;        
+}
+
+
+
+.image-actualiteStandard
+{ 
+    width:100%;
+    max-width:100px;
+}
+
+.TexteTeasing
+{
+    font-size:16px;
+    width:100%;
+}
+
+.LienActualite
+{
+   font-size:16px;
+   cursor:pointer;
+}
+
+.divActu
+{
+   background-color:#eee6ff;
+   	padding-top:15px;
+	padding-bottom:15px;
+	box-shadow: 8px 8px 12px #aaa;
+}
+
+
+
+
+ .infoDiv {
+    height: 200px;    
+    width: 300px; 
+    -webkit-user-select: none; 
+    background-color: white; 
+} 
+#map_canvas img
+	{
+	max-width:none
+	}
+
+.fade2 {
+	opacity: 0;
+	-webkit-transition: opacity 0.15s linear;
+	transition: opacity 0.15s linear;
+}
+.fade2.in {
+	opacity: 1;
+}
+
+.dateActu {
+
+    color:black;
+    margin-top:0px;
+    margin-bottom:10px;
+    margin-right:13px;
+    font-size:15px;
+}
+
+.ResumeActualite {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.image-important
+{ 
+    width:100%;
+    max-width:25px;
+}
+
+.CoinsArrondis {
+  border-radius: 10px;
+}
+
+.MediumModal
+{
+  width: 70%;
+}
+
+.LargeModal
+{
+  width: 80%;
+}
+
+.SmallModal
+{
+  width: 40%;
+  top: calc(50% - 200px) !important;
+}
+
+.modal-content  {
+    -webkit-border-radius: 10px !important;
+    -moz-border-radius: 10px !important;
+    border-radius: 10px !important; 
+}
+
+.show  {
+	display: inline;
+}
+
+.hide  {
+	display: none;
+}
+
+.inputDoc
+{
+	margin-bottom:5px;
+    font-size:15px;
+}
+
+
+td,tr
+{
+    font-size:15px;
+} 
+
+th,div
+{
+    font-size:17px;
+}
+
+.widthButton
+{
+     width:100px;
+}  
+
+
+input, select, textarea,span,body,header,p
+{
+    font-size:16px;
+}  
+
+
+input,body, select, textarea,h1,h2,title,h3,h4,h5,span,body,td,tr,div
+{
+   font-family: "Slabo", Times, serif;
+} 
+
+.libelleSuppressionDocument
+ {
+	font-style: italic; 
+}
+
+
+
+.lblNomFichier
+{
+	margin-left:12px;
+	font-weight: normal;
+}
+
+.Gras
+{
+     font-weight:bold;
+}
+
+.Italique
+{
+     font-style: italic;
+}
+
+.divHistoire
+{
+     margin-top:10px;
+}
+
+.hyperLinkTitreActualite
+{
+   color:black;
+   cursor:pointer;
+}
+
+.photoHistoire
+{
+     margin-top:5px;
+}
+
+figcaption
+{
+     font-style: italic;
+}
+
+.fontesizeHistoire
+{
+     font-size: 17px;
+}
+
+
+.TitreListeAdministration
+{
+	margin-bottom:20px;
+}
+
+.divListeCommentaires
+{
+	background-color:#eee6ff;
+	margin-top:14px;
+	padding-left:6px;
+	padding-right:6px;
+	padding-top:4px;
+	padding-bottom:0px;
+	margin-bottom:0px;
+}
+
+.divCommentaire {
+    background-color: white;
+    margin-top: 6px;
+    padding-left: 7px;
+    padding-right: 6px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    margin-right: 2px;
+}
+
+.divListeCommentairesArticle {
+    background-color: white;
+    margin-top: 14px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 4px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.divCommentaireArticle {
+    background-color: #eee6ff;
+    margin-top: 6px;
+    padding-left: 7px;
+    padding-right: 6px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    margin-right: 2px;
+}

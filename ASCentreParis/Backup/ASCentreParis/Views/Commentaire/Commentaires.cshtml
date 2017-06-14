@@ -1,0 +1,13 @@
+﻿@model Models.Actualite
+
+<div style="@Model.styleCommentairesActualite" class="divListeCommentaires col-lg-12"  id="divCommentaires_@Model.Id">
+		<div class="container col-lg-12" style="padding-bottom:0px;margin-bottom:0px;padding-left:3px;padding-right:3px;">
+			<div class="col-lg-12 noMarginPaddingVertical" id="divListeCommentaires_@Model.Id">
+				@Html.Partial("~/Views/Commentaire/ListeCommentaires.cshtml",@Model)
+			</div>
+			<div class="col-lg-12 noMarginPaddingVertical" id="divFormulaireCommentaire_@Model.Id">
+				@Html.Partial("~/Views/Commentaire/FormulaireCommentaire.cshtml",@Model)
+		      </div>
+		</div>
+ </div>
+

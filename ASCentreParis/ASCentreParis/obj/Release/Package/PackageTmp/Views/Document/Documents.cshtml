@@ -1,0 +1,21 @@
+@model Models.ObjDocument
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.HiddenFor(m => m.ElementCount,new {@id= "HiddenForElementCount"})
+@Html.HiddenFor(m => m.NombreDocumentsParLigne,new {@id= "HiddenForNombreDocumentsParLigne"})
+@Html.HiddenFor(m => m.NombreLignes,new {@id= "HiddenForNombreLignes"})
+@Html.HiddenFor(m => m.idCategorieDocument,new {@id= "HiddenForIdCategorieDocument"})
+
+<div class="divTitrePage row">
+    <img src="@Url.Content(Commons.Const.CheminMiniBandeau_violet)" class="minibandeau_violet" />
+    <h1>Documents @Model.LibelleCategorieDocument</h1>
+</div>
+
+<div style="width:100%" class="noMarginPaddingHorizontal" id="divListeDocuments">
+</div>
+
+<script src="@Url.Content("~/Scripts/Documents.js")"></script>
+

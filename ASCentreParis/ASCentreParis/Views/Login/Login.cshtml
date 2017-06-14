@@ -1,0 +1,42 @@
+﻿@model Models.ObjLogin
+
+
+
+<div id="form-container">
+   <div class="modal-header noMarginPaddingVertical">
+	    <button type="button" class="close" onclick="fermerModalLogin();" aria-hidden="true">&times;   </button>
+	    <h3 class="modal-title noMarginPaddingVertical" style="color:white;" id="imageModalLabel">Connexion</h3>
+	</div>
+
+	<div class="container-fluid modal-body noMarginPaddingVertical">
+	    <div class="noMarginPaddingVertical col-xs-12">
+	     @using (Html.BeginForm("LoginPost", "Home", FormMethod.Post, new { id = "MyForm" }))
+         {
+                    <div class="col-xs-10 row blocFormulaire col-xs-offset-1" align="center">
+                        <h3 >Veuillez renseigner vos identifiants</h3>
+                    </div>
+                    <div class="col-xs-10 row blocFormulaire col-xs-offset-1">
+                         <p class="ValidationKO" id="BlocMessageKO">@Model.messageKO</p>
+                         @Html.ValidationSummary("")
+                     </div>
+		            <div class="col-xs-12 row blocFormulaire">
+	                 	        <div class="col-xs-5 libelleFormulaire" align="right">Login</div>
+                                <div class="col-xs-7">@Html.TextBoxFor(model => model.Login ,new { @id = "tbxLogin", @style = "width:95%;font-size:15px;"  }) </div>
+	                 </div>
+			        <div class="col-xs-12 row blocFormulaire">
+	                 	        <div class="col-xs-5  libelleFormulaire" align="right">Mot de passe</div>
+                                <div class="col-xs-7">@Html.TextBoxFor(model => model.Password ,new { @id = "tbxPassword", @type="Password", @style = "width:95%;font-size:15px;"  }) </div>
+	                </div>
+			        <div class="col-xs-12  blocFormulaire" align="center" style="margin-top:20px;margin-bottom:20px;">
+                            <button id="btn-submit" class="widthButton btn btn-primary" style="margin-right:15px;"><span class="glyphicon glyphicon-ok-sign"></span>Valider</button>
+                            <button type="button" class="widthButton btn btn-default" style="margin-left:15px;" onclick="fermerModalLogin();">Retour</button>
+	   		         </div> 
+	               }
+	    </div>
+	</div>
+</div>
+
+ <script type="text/javascript">
+	var model = @Html.Raw(Json.Encode(Model));
+	initFenetreLogin(model);
+</script>

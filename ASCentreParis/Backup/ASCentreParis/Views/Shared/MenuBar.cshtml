@@ -1,0 +1,7 @@
+@using MvcSiteMapProvider.Web.Html
+<nav id="menubar" class="navbar navbar-default noMarginPaddingVertical"   role="navigation">
+    @Html.Partial("NavBarHeader")
+    <div class="collapse navbar-collapse" id="example-navbar-collapse">
+        @Html.MvcSiteMap().Menu("BootstrapMenuHelperModel")
+    </div>
+</nav>

@@ -1,0 +1,56 @@
+﻿<Properties StartupConfiguration="{AEF0CAA6-5569-460E-87DE-F15C15AF9874}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/ObjetVues/ObjGestionLogs.cs">
+    <Files>
+      <File FileName="ASCentreParis/Views/Document/Documents.cshtml" Line="8" Column="1" />
+      <File FileName="ASCentreParis/Scripts/Home.js" Line="58" Column="77" />
+      <File FileName="ASCentreParis/Scripts/Documents.js" Line="30" Column="26" />
+      <File FileName="ASCentreParis/Views/Document/ListeDocuments.cshtml" Line="30" Column="1" />
+      <File FileName="ASCentreParis/Views/Document/ListeDocumentsMobile.cshtml" Line="30" Column="1" />
+      <File FileName="ASCentreParis/Controllers/HomeController.cs" Line="78" Column="16" />
+      <File FileName="Models/ObjetVues/ObjDocument.cs" Line="17" Column="20" />
+      <File FileName="DataAccess/DAL/DocumentDAL.cs" Line="315" Column="1" />
+      <File FileName="ASCentreParis/Views/Shared/Error.cshtml" Line="14" Column="7" />
+      <File FileName="ASCentreParis/Ressources/css/Ajout.css" Line="26" Column="1" />
+      <File FileName="ASCentreParis/Scripts/Commons.js" Line="46" Column="21" />
+      <File FileName="ASCentreParis/Views/Document/DisplayDocument.cshtml" Line="6" Column="131" />
+      <File FileName="ASCentreParis/Controllers/DocumentController.cs" Line="141" Column="43" />
+      <File FileName="ASCentreParis/Controllers/ErrorController.cs" Line="1" Column="1" />
+      <File FileName="ASCentreParis/Controllers/BaseController.cs" Line="1" Column="1" />
+      <File FileName="ASCentreParis/Controllers/ContactController.cs" Line="1" Column="1" />
+      <File FileName="ASCentreParis/Views/Shared/Transverse.cshtml" Line="1" Column="1" />
+      <File FileName="ASCentreParis/Views/Home/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Models/ObjetVues/ObjGestionActualite.cs" Line="1" Column="1" />
+      <File FileName="ASCentreParis/Views/Administration/Actualites.cshtml" Line="1" Column="1" />
+      <File FileName="ASCentreParis/Views/Administration/Equipes.cshtml" Line="1" Column="1" />
+      <File FileName="ASCentreParis/Views/Administration/Documents.cshtml" Line="1" Column="1" />
+      <File FileName="ASCentreParis/Views/Administration/GererDocument.cshtml" Line="1" Column="1" />
+      <File FileName="ASCentreParis/Views/Administration/Logs.cshtml" Line="1" Column="1" />
+      <File FileName="Models/ObjetVues/ObjAcceuil.cs" Line="13" Column="46" />
+      <File FileName="DataAccess/DAL/ActualiteDAL.cs" Line="1" Column="1" />
+      <File FileName="ASCentreParis/Controllers/AdministrationController.cs" Line="1" Column="1" />
+      <File FileName="ASCentreParis/Views/Home/SearchActualite.cshtml" Line="7" Column="33" />
+      <File FileName="Models/ObjetVues/ObjGestionLogs.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/francoislaruaz/Projects/ASCentreParis/ASCentreParis/Controllers/AdministrationController.cs" relfile="ASCentreParis/Controllers/AdministrationController.cs" line="1115" column="1" />
+      <Breakpoint file="/Users/francoislaruaz/Projects/ASCentreParis/ASCentreParis/Controllers/AdministrationController.cs" relfile="ASCentreParis/Controllers/AdministrationController.cs" line="1083" column="1" />
+      <Breakpoint file="/Users/francoislaruaz/Projects/ASCentreParis/ASCentreParis/Controllers/AdministrationController.cs" relfile="ASCentreParis/Controllers/AdministrationController.cs" line="1596" column="1" />
+      <Breakpoint file="/Users/francoislaruaz/Projects/ASCentreParis/ASCentreParis/Controllers/AdministrationController.cs" relfile="ASCentreParis/Controllers/AdministrationController.cs" line="1322" column="1" />
+      <Breakpoint file="/Users/francoislaruaz/Projects/ASCentreParis/ASCentreParis/Controllers/AdministrationController.cs" relfile="ASCentreParis/Controllers/AdministrationController.cs" line="1669" column="1" />
+      <Breakpoint file="/Users/francoislaruaz/Projects/ASCentreParis/ASCentreParis/Controllers/AdministrationController.cs" relfile="ASCentreParis/Controllers/AdministrationController.cs" line="1657" column="1" />
+      <Breakpoint file="/Users/francoislaruaz/Projects/ASCentreParis/ASCentreParis/Controllers/AdministrationController.cs" relfile="ASCentreParis/Controllers/AdministrationController.cs" line="296" column="1" />
+      <Breakpoint file="/Users/francoislaruaz/Projects/ASCentreParis/ASCentreParis/Controllers/AdministrationController.cs" relfile="ASCentreParis/Controllers/AdministrationController.cs" line="262" column="1" />
+      <Breakpoint file="/Users/francoislaruaz/Projects/ASCentreParis/ASCentreParis/Controllers/AdministrationController.cs" relfile="ASCentreParis/Controllers/AdministrationController.cs" line="269" column="1" />
+      <Breakpoint file="/Users/francoislaruaz/Projects/ASCentreParis/ASCentreParis/Controllers/AdministrationController.cs" relfile="ASCentreParis/Controllers/AdministrationController.cs" line="661" column="1" />
+      <Breakpoint file="/Users/francoislaruaz/Projects/ASCentreParis/ASCentreParis/Controllers/AdministrationController.cs" relfile="ASCentreParis/Controllers/AdministrationController.cs" line="692" column="1" />
+      <Breakpoint file="/Users/francoislaruaz/Projects/ASCentreParis/ASCentreParis/Controllers/DocumentController.cs" relfile="ASCentreParis/Controllers/DocumentController.cs" line="107" column="62" />
+      <Breakpoint file="/Users/francoislaruaz/Projects/ASCentreParis/DataAccess/DAL/DocumentDAL.cs" relfile="DataAccess/DAL/DocumentDAL.cs" line="315" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ASCentreParis PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>

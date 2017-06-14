@@ -1,0 +1,66 @@
+﻿/* gestion icone calendrier */
+.input-group-addon{
+	padding:0px 12px 0px 12px;	
+	height:20px;
+	background : #8970EC;
+}
+
+.glyphicon-calendar{
+	margin-right:0;
+}
+
+.charte-btn-cal{
+line-height:1.3em;
+height:28px;
+}
+
+.charte-btn
+{
+	background: #FFF;
+	border: 1px solid #FFF;
+	color: #000;
+	padding: 4px 12px;
+}
+.charte-btn-header{
+	border: 1px solid #8970EC;
+	border-radius:0px;
+}
+
+.btn-info {
+    color: #FFF;
+    background-color: #5BC0DE;
+    border-color: #46B8DA;
+}
+
+.charte-btn-weekend{
+	background:#F5F5F5;
+    border-color: #F5F5F5;
+	color:#000;
+	border-radius:0;
+}
+
+.datepicker table tr td.today, .datepicker table tr td.today:hover, .datepicker table tr td.today.disabled, .datepicker table tr td.today.disabled:hover {
+    color: #000;
+    background-color: #BDD5F5;
+    border-color: #FFB733;
+}
+
+.datepicker table tr td.day:hover,
+.datepicker table tr td.day.focused {
+  background: #8970EC;
+  cursor: pointer;
+  color:white;
+}
+
+/* gestion des weekends => par défaut : "0,6" */ 
+.datepicker table tr td.weekend {
+	background:#F5F5F5;
+	color:#000;
+	border-radius:0;
+}
+
+.datepicker table tr td.weekend:hover {
+	background:#8970EC;
+	color:#FFF;
+	border-radius:4px;
+}

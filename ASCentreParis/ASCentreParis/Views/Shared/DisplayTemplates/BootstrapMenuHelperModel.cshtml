@@ -1,0 +1,156 @@
+﻿@model MvcSiteMapProvider.Web.Html.Models.MenuHelperModel
+@using System.Web.Mvc.Html
+@using MvcSiteMapProvider.Web.Html.Models
+@using Commons
+@using Models;
+
+
+
+
+@helper TopMenu(List<SiteMapNodeModel> nodeList)
+{
+  
+    <ul class="nav navbar-nav menuBarPadding"  style="font-size:19px;">
+        @foreach (SiteMapNodeModel node in nodeList)
+        {
+           string classMenu="hide";
+	       if(node.Title!="Administration" || (System.Web.HttpContext.Current.Session[Commons.Const.sessionName_UserConnecte] != null && (((Models.Utilisateur)System.Web.HttpContext.Current.Session[Commons.Const.sessionName_UserConnecte]).Profils.Contains(Commons.Const.ProfilAdministrateur)) || ((Models.Utilisateur)System.Web.HttpContext.Current.Session[Commons.Const.sessionName_UserConnecte]).Profils.Contains(Commons.Const.ProfilAdministrateurPartiel) ))
+            {
+		      classMenu="show";
+			}
+	        string url = node.IsClickable ? node.Url : "#";
+	        if (!node.Children.Any())
+	            {
+	                <li id="menu_@node.Title" class="@classMenu">
+	                    <a href="@url">
+	                        <span @( !string.IsNullOrEmpty(node.ImageUrl) ? ("class=" + node.ImageUrl.TrimStart('/')) : string.Empty)></span>
+	                        @node.Title
+	                    </a>
+	                </li>
+	            }
+	          else 
+	            {
+	                <li id="menu_@node.Title" class="dropdown @classMenu">
+
+	                    <a class="dropdown-toggle" data-toggle="dropdown" href="@url">
+	                        <span style="float:left" @( !string.IsNullOrEmpty(node.ImageUrl) ? ("class=" + node.ImageUrl.TrimStart('/')) : string.Empty)></span>
+	                        @node.Title 
+	                        <span class="caret"></span>
+						</a>
+	                        @DropDownMenu(node.Children,node.Title)
+	                </li>
+	            }
+        }
+
+    </ul>
+}
+
+@helper DropDownMenu(SiteMapNodeModelList nodeList,string Titre)
+{
+  // Consignes à googlebot afin de suivre uniqueent les pages non admins
+  string follow="follow";
+  if(Titre=="Administration")
+	{
+	follow="nofollow";
+	}
+   // L'affichage des sous menus pour les documents et les équipes est dynamyique :
+   // On regarde en base quels sont les sous menus à afficher.
+     <ul class="dropdown-menu" style="font-size:15px;">
+    @if(Titre=="Documents" && @System.Web.HttpContext.Current.Session[Commons.Const.sessionName_MenusDocuments]!=null)
+        {
+        List<Models.CategorieDocument> ListeMenus=(List<Models.CategorieDocument>) System.Web.HttpContext.Current.Session[Commons.Const.sessionName_MenusDocuments];
+        foreach (Models.CategorieDocument Categorie in ListeMenus)
+            {
+	        // On affiche le sous menu uniquement s'il y a au moins un document
+	         if(@Categorie.ListSousCategorie.Count>0 && @Categorie.NombreDocuments>0)
+	            {
+		         
+	             <li class="dropdown-submenu ">
+	                   <a href="#" rel="@follow">
+					        <span style="font-size:15px;" class="badge">@Categorie.NombreDocuments</span>
+					        @Categorie.Libelle
+	                   </a>
+						@DropDownMenuDocuments(@Categorie.ListSousCategorie)
+	             </li>
+	            }
+		        else if(@Categorie.NombreDocuments>0)
+	            {
+		         
+	             <li>
+	                   <a href="@Categorie.URL" rel="@follow">
+					        <span style="font-size:15px;" class="badge">@Categorie.NombreDocuments</span>
+					        @Categorie.Libelle
+							
+	                   </a>
+	             </li>
+	            }
+	         
+            }
+        }
+    else if(Titre=="Equipes" && @System.Web.HttpContext.Current.Session[Commons.Const.sessionName_MenusEquipes]!=null)
+        {
+        List<Models.Equipe> ListeEquipes=(List<Models.Equipe>) System.Web.HttpContext.Current.Session[Commons.Const.sessionName_MenusEquipes];
+        foreach (Models.Equipe Categorie in ListeEquipes)
+            {
+             <li>
+                   <a href="@Categorie.URL" rel="@follow">
+                     @Categorie.Libelle
+                     <span style="float:right"></span>
+                   </a>
+             </li>
+            }
+        } 
+    else
+        {
+        foreach (SiteMapNodeModel node in nodeList)
+        {
+            if (node.Title == "Separator")
+            {
+                <li class="divider"></li>
+                continue;
+            }
+            string url = node.IsClickable ? node.Url : "#";
+            if (!node.Children.Any())
+            {
+                <li>
+                    <a href="@url" rel="@follow">
+                        @node.Title 
+                        <span style="float:right" @( !string.IsNullOrEmpty(node.ImageUrl) ? ("class=" + node.ImageUrl.TrimStart('/')) : string.Empty)></span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="dropdown-submenu ">
+                    <a href="@url" rel="@follow">
+                        @node.Title
+                        <span style="float:right" @( !string.IsNullOrEmpty(node.ImageUrl) ? ("class=" + node.ImageUrl.TrimStart('/')) : string.Empty)></span>
+                    </a>
+                    @DropDownMenu(node.Children,node.Title)
+                </li>
+            }
+        }
+    }
+    </ul>
+}
+
+@helper DropDownMenuDocuments(List<Models.CategorieDocument> nodeList)
+{
+		<ul class="dropdown-menu" style="font-size:16px;">
+	        @foreach (Models.CategorieDocument Categorie in nodeList)
+	            {
+				if(@Categorie.NombreDocuments>0)
+		            {
+		            <li>
+		            	<a href="@Categorie.URL" rel="follow">
+							<span style="font-size:15px;" class="badge">@Categorie.NombreDocuments</span>
+		                	@Categorie.Libelle
+		               </a>
+		         	</li>
+					}
+	            }
+		 </ul>
+}
+
+
+@TopMenu(Model.Nodes)

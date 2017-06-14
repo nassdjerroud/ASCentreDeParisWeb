@@ -1,0 +1,278 @@
+.wizard-section .wizard-content
+{
+	/* background: none repeat scroll 0% 0% rgb(231, 237, 243); */
+	/* border: 1px solid #BDD5F5; */
+	
+	border-top: 1px solid #9370DB;
+	border-right: 1px solid #9370DB;
+	border-left: 1px solid #9370DB;
+	border-bottom: 1px solid #9370DB;
+
+	padding:12px 12px 12px 12px;
+	margin-bottom:10px;
+}
+
+/*** Steps wizard ***/
+
+.wizard
+{
+	/*
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9370DB', endColorstr='#9371DB',GradientType=0 );
+	background-image: -moz-linear-gradient(top, #9370DB 0%, #9371DB 100%); 
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9370DB), color-stop(100%, #9371DB)); 
+	background-image: -webkit-linear-gradient(top, #9370DB 0%, #9371DB 100%); 
+	background-image: -o-linear-gradient(top, #9370DB 0%, #9371DB 100%); 
+	background-image: -ms-linear-gradient(top, #9370DB 0%, #9371DB 100%);
+	background-image: linear-gradient(to bottom, #9370DB 0%, #9371DB 100%)
+	margin-top: 15px;
+	*/
+}
+.wizard:before,
+.wizard:after 
+{
+ display: table;
+ line-height: 0;
+ content: "";
+}
+
+.wizard:after
+ {
+ clear: both;
+}
+
+.wizard .steps 
+{
+ padding: 0;
+ margin: 0;
+ list-style-type: none;
+}
+
+.wizard .steps li 
+{
+ position: relative;
+ float: left;
+ padding: 12px 30px;
+ margin: 0;
+ color: #999999;
+ cursor: default;
+ /* background: #DEDEDE; */
+background: #F5F5F5;
+background: -moz-linear-gradient(left, #FFFFFF 0%, #F5F5F5 100%);
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,#FFFFFF), color-stop(100%,#F5F5F5));
+background: -webkit-linear-gradient(left, #FFFFFF 0%, #F5F5F5 100%);
+background: -o-linear-gradient(left, #FFFFFF 0%, #F5F5F5 100%);
+background: -ms-linear-gradient(left, #999999 0%, #F5F5F5 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#F5F5F5',GradientType=1 );
+-ms-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#F5F5F5',GradientType=1 );
+background: linear-gradient(left, #FFFFFF 0%, #F5F5F5 100%);
+
+font-weight:bold;
+}
+
+/* ligne de séparation des chevrons */
+.wizard .steps li .chevron 
+{
+ position: absolute;
+ top: 0;
+ right: -14px;
+ display: block;
+ border: 20px solid transparent;
+ border-right: 0;
+ /* background:#FFFFFF; */
+ border-left: 14px solid #BDD5F5;
+}
+
+/* corps du chevron */
+.wizard .steps li .chevron:before 
+{
+ position: absolute;
+ top: -20px;
+ right: 1px;
+ display: block;
+ border: 20px solid transparent;
+ border-right: 0;
+ border-left: 14px solid #F5F5F5;
+ content: "";
+}
+
+.wizard .steps li.done 
+{
+ color: #133B77;
+ /*background: #C1D7F5; */
+
+background: #FBFBFB;
+background: -moz-linear-gradient(left, #FBFBFB 0%, #C1D7F5 100%);
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,#FBFBFB), color-stop(100%,#C1D7F5));
+background: -webkit-linear-gradient(left, #FBFBFB 0%, #C1D7F5 100%);
+background: -o-linear-gradient(left, #FBFBFB 0%, #C1D7F5 100%);
+background: -ms-linear-gradient(left, #FBFBFB 0%, #C1D7F5 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FBFBFB', endColorstr='#C1D7F5',GradientType=1 );
+-ms-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FBFBFB', endColorstr='#C1D7F5',GradientType=1 );
+background: linear-gradient(left, #FBFBFB 0%, #C1D7F5 100%);
+
+font-weight:bold;
+
+cursor:pointer;
+}
+
+/*
+.wizard .steps li.done:hover 
+{
+ cursor: pointer;
+ background: #e7eff8;
+}
+
+.wizard .steps li.done:hover .chevron:before 
+{
+ border-left: 14px solid #e7eff8;
+}
+*/
+
+.wizard .steps li.done .chevron:before 
+{
+ border-left: 14px solid #C1D7F5;
+}
+
+.wizard .steps li.active 
+{
+ /* background: #9370DB; */
+
+background: #9370DB;
+background: -moz-linear-gradient(left, #1D61AA 0%, #9370DB 100%);
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,#FFFFFF), color-stop(100%,#9370DB));
+background: -webkit-linear-gradient(left, #FFFFFF 0%, #9370DB 100%);
+background: -o-linear-gradient(left, #FFFFFF 0%, #9370DB 100%);
+background: -ms-linear-gradient(left, #999999 0%, #9370DB 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1D61AA', endColorstr='#9370DB',GradientType=1 );
+-ms-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1D61AA', endColorstr='#F5F5F5',GradientType=1 );
+background: linear-gradient(left, #1D61AA 0%, #F5F5F5 100%);
+
+ /*
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F5F5F5', endColorstr='#FFFFFF',GradientType=0 );
+ background-image: -moz-linear-gradient(top, #F5F5F5 0%, #FFFFFF 100%); 
+ background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F5F5F5), color-stop(100%, #FFFFFF)); 
+ background-image: -webkit-linear-gradient(top, #F5F5F5 0%, #FFFFFF 100%); 
+ background-image: -o-linear-gradient(top, #F5F5F5 0%, #FFFFFF 100%); 
+ background-image: -ms-linear-gradient(top, #F5F5F5 0%, #FFFFFF 100%);
+ background-image: linear-gradient(to bottom, #F5F5F5 0%, #FFFFFF 100%)
+ */
+color: white;
+font-weight:bold;
+ 
+}
+
+.wizard .steps li.active .chevron 
+{
+ border-left: 14px solid #fff;
+ ;
+}
+.wizard .steps li.active .chevron:before 
+{
+ border-left: 14px solid #9370DB;
+}
+.wizard .steps li.active .chevron:after 
+{
+ border-left: 14px solid white;
+}
+
+.wizard .steps li .badge {
+ margin-right: 8px;
+}
+
+.wizard .steps li:nth-child(1) 
+{
+ z-index: 10;
+ padding-left: 20px;
+}
+
+.wizard .steps li:nth-child(2) 
+{
+ z-index: 9;
+}
+
+.wizard .steps li:nth-child(3) 
+{
+ z-index: 8;
+}
+
+.wizard .steps li:nth-child(4) 
+{
+ z-index: 7;
+}
+
+.wizard .steps li:nth-child(5) 
+{
+ z-index: 6;
+}
+
+.wizard .steps li:nth-child(6)
+{
+ z-index: 5;
+}
+
+.wizard .steps li:nth-child(7) 
+{
+ z-index: 4;
+}
+
+.wizard .steps li:nth-child(8) 
+{
+ z-index: 3;
+}
+
+.wizard .steps li:nth-child(9) 
+{
+ z-index: 2;
+}
+
+.wizard .steps li:nth-child(10) 
+{
+ z-index: 1;
+}
+
+.wizard-section .step-actions 
+{
+ text-align : right;
+ margin-top: 12px;
+}
+
+.wizard-content section 
+{
+ display: none;
+}
+
+.wizard-content .active 
+{
+ display: block;
+}
+
+.wizard-content section{
+	padding-bottom:10px;
+}
+
+/*
+.wizard-section .step-action{
+	float:right;
+	
+}
+*/
+
+.alignright{
+	float:right;
+}
+
+.alignleft{
+	float:left;
+}
+
+a.previous, a.next{
+	color : #88B3EC;
+}
+
+a.previous:hover, a.next:hover{
+	color : #88B3EC;
+}
+
+a.previous:focus, a.next:focus{
+	color : #88B3EC;
+}

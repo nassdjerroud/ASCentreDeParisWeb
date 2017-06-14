@@ -1,0 +1,40 @@
+﻿@model Models.ObjLogin
+
+
+
+<div id="form-container">
+   <div class="modal-header noMarginPaddingVertical">
+	    <button type="button" class="close" onclick="fermerModalLogin();" aria-hidden="true">&times;   </button>
+	    <h3 class="modal-title noMarginPaddingVertical" style="color:white;" id="imageModalLabel">Connexion</h3>
+	</div>
+
+	<div class="container modal-body noMarginPaddingVertical">
+	    <div class="noMarginPaddingVertical">
+	     @using(Html.BeginForm("LoginPost", "Home",  FormMethod.Post, new { id = "MyForm" }))
+                    {
+			<h3 style="margin-top:25px;margin-bottom:25px">Veuillez renseigner vos identifiants</h3>
+                     <div  style="margin-left:5px" >
+		           <p class="ValidationKO" id="BlocMessageKO" >@Model.messageKO</p>
+                            @Html.ValidationSummary("")
+                     </div>
+
+
+			<div class="col-lg-9 row blocFormulaire">
+	                 	<span class="col-lg-2 col-lg-offset-1 libelleFormulaire">Login</span><span class="col-lg-4">@Html.TextBoxFor(model => model.Login ,new { @id = "tbxLogin", @style = "width:100px;font-size:15px;"  }) </span>
+	                 </div>
+			<div class="col-lg-9 row blocFormulaire">
+	                 	<span class="col-lg-2 col-lg-offset-1 libelleFormulaire">Mot de passe</span><span class="col-lg-4">@Html.TextBoxFor(model => model.Password ,new { @id = "tbxPassword", @type="Password", @style = "width:100px;font-size:15px;"  }) </span>
+	                 </div>
+			<div class="col-lg-3 col-lg-offset-1 row blocFormulaire" align="center" style="margin-top:20px;margin-bottom:10px;">
+			    <button id="btn-submit" class="widthButton btn btn-primary" style="margin-right:30px;" ><span class="glyphicon glyphicon-ok-sign"></span>Valider</button>
+			    <button type="button" class="widthButton btn btn-default" onclick="fermerModalLogin();">Retour</button>
+	   		 </div> 
+	               }
+	    </div>
+	</div>
+</div>
+
+ <script type="text/javascript">
+	var model = @Html.Raw(Json.Encode(Model));
+	initFenetreLogin(model);
+</script>
