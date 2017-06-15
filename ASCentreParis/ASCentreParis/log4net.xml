@@ -2,7 +2,7 @@
     <appender name="AdoNetAppender" type="log4net.Appender.AdoNetAppender">
       <bufferSize value="1" />
       <connectionType value="MySql.Data.MySqlClient.MySqlConnection, MySql.Data" />
-      <connectionString value="SERVER=127.0.0.1; DATABASE=ASCentreParis; UID=user_test; PASSWORD=Chimbonda53;" />
+      <connectionString value="SERVER=127.0.0.1; DATABASE=ASCentreParis; UID=user_test; PASSWORD=*******;" />
       <commandText value="INSERT INTO tblLog4Net (Date,Thread,Level,Logger,Message,Exception) VALUES (@log_date, @thread, @log_level, @logger, @message, @exception);" />
       <parameter>
         <parameterName value="@log_date" />
@@ -90,7 +90,7 @@
     <appender name="AdoNetAppender" type="log4net.Appender.AdoNetAppender">
       <bufferSize value="1" />
       <connectionType value="MySql.Data.MySqlClient.MySqlConnection, MySql.Data" />
-      <connectionString value="SERVER=127.0.0.1; DATABASE=ASCentreParis; UID=user_test; PASSWORD=Chimbonda53;" />
+      <connectionString value="SERVER=127.0.0.1; DATABASE=ASCentreParis; UID=user_test; PASSWORD=*******;" />
       <commandText value="INSERT INTO Test ([col1]) VALUES (@logger);" />
       <parameter>
         <parameterName value="@logger" />
